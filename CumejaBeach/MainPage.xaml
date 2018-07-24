@@ -5,25 +5,26 @@
         </StackLayout>
         <StackLayout BackgroundColor="White" HeightRequest="50">
             <BoxView BackgroundColor="Silver" HeightRequest="2" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
-            <Label Text="Cumeja Beach - Disposizione Ombrelloni " HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+            <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Label Text="Cumeja Beach - Disposizione Ombrelloni" Grid.Row="0" Grid.Column="0" VerticalOptions="Center"/>
+                <ActivityIndicator x:Name="Indicator1" Grid.Row="0" Grid.Column="1"/>
+                <BoxView Grid.Row="0" Grid.Column="2" ></BoxView>
+            </Grid>
             <BoxView BackgroundColor="Silver" HeightRequest="2" VerticalOptions="End" HorizontalOptions="FillAndExpand" />
         </StackLayout>
-        <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-          
-            <Label Text="Top Left" Grid.Row="0" Grid.Column="0" />
+        <Grid x:Name="GrigliaOmbrelloni" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <!--<Label Text="Top Left" Grid.Row="0" Grid.Column="0" />
             <Label Text="Top Right" Grid.Row="0" Grid.Column="1" />
             <Label Text="Bottom Left" Grid.Row="0" Grid.Column="2" />
             <Label Text="Bottom Right" Grid.Row="0" Grid.Column="3" />
             <Label Text="Top Left" Grid.Row="0" Grid.Column="4" />
             <Label Text="Top Right2" Grid.Row="0" Grid.Column="5" />
             <Label Text="Bottom Left2" Grid.Row="0" Grid.Column="6" />
-            <Label Text="Bottom Right2" Grid.Row="0" Grid.Column="7" />
+            <Label Text="Bottom Right2" Grid.Row="0" Grid.Column="7" />-->
         </Grid>
         <StackLayout BackgroundColor="Silver" HeightRequest="50">
             <Grid HorizontalOptions="End" VerticalOptions="CenterAndExpand">
-            <Label Grid.Row="0" Grid.Column="0" Text="Inceptium App " HorizontalOptions="End" VerticalOptions="CenterAndExpand" />
-            <ActivityIndicator Grid.Row="0" Grid.Column="1" x:Name="Indicator1" HorizontalOptions="End" VerticalOptions="Center"/>
-                
+                <Label Grid.Row="0" Grid.Column="0" Text="Inceptium App " HorizontalOptions="End" VerticalOptions="CenterAndExpand" />
             </Grid>
         </StackLayout>
         <!-- Place new controls here -->
