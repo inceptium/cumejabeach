@@ -12,6 +12,8 @@ namespace CumejaBeach
         public MainPage()
         {
             InitializeComponent();
+            Indicator1.IsRunning = true;
+
         }
     }
 }
