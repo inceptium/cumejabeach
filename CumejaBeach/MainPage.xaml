@@ -6,9 +6,11 @@
         <StackLayout BackgroundColor="White" HeightRequest="50">
             <BoxView BackgroundColor="Silver" HeightRequest="2" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
             <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                <Label Text="Cumeja Beach - Disposizione Ombrelloni" Grid.Row="0" Grid.Column="0" VerticalOptions="Center"/>
-                <ActivityIndicator x:Name="Indicator1" Grid.Row="0" Grid.Column="1"/>
-                <BoxView Grid.Row="0" Grid.Column="2" ></BoxView>
+                
+                <Label Text="Cumeja Beach - Disposizione Ombrelloni" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" />
+                <ActivityIndicator x:Name="Indicator1" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"/>
+                <BoxView Grid.Row="0" Grid.Column="2">
+                </BoxView>
             </Grid>
             <BoxView BackgroundColor="Silver" HeightRequest="2" VerticalOptions="End" HorizontalOptions="FillAndExpand" />
         </StackLayout>
