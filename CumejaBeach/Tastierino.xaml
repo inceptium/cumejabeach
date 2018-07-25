@@ -12,7 +12,7 @@
                 <Setter Property="BackgroundColor" Value="#ddd" />
                 <Setter Property="TextColor" Value="Black" />
                 <Setter Property="BorderRadius" Value="0" />
-                <Setter Property="FontSize" Value="40" />
+                <Setter Property="FontSize" Value="41" />
             </Style>
             <Style x:Key="orangeButton" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="#E8AD00" />
