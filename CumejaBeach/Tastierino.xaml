@@ -57,7 +57,7 @@
             <Button Text="+" Grid.Row="4" Grid.Column="3" Style="{StaticResource orangeButton}" />
             <Button Text="0" Grid.ColumnSpan="2" Grid.Row="5" Grid.Column="0" Style="{StaticResource plainButton}" />
             <Button Text="." Grid.Row="5" Grid.Column="2" Style="{StaticResource plainButton}" />
-            <Button Text="=" Grid.Row="5" Grid.Column="3" Style="{StaticResource orangeButton}" />
+            <Button Text="==" Grid.Row="5" Grid.Column="3" Style="{StaticResource orangeButton}" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>
