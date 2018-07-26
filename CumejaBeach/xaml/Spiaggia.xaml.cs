@@ -62,7 +62,7 @@ namespace CumejaBeach.xaml
                 request.Headers.Add("Accept", "application/json");
 
                 HttpClient client = new HttpClient();
-                client.Timeout = TimeSpan.FromSeconds(3);
+                client.Timeout = TimeSpan.FromSeconds(7);
                 try
                 {
                     HttpResponseMessage reposponse = await client.SendAsync(request, tokenSource.Token);
@@ -78,8 +78,8 @@ namespace CumejaBeach.xaml
                         {
                             Console.WriteLine(ombrellone.Codice);
                             var stack = new StackLayout();
-                            stack.HeightRequest = 70;
-                            stack.WidthRequest = 70;
+                            stack.HeightRequest = 50;
+                            stack.WidthRequest = 50;
                             var omb = new Label { Text = ombrellone.Codice + "\n" + ombrellone.PosX.ToString() + "-" + ombrellone.Posy.ToString() };
                             //var pos = new Label { Text = ombrellone.PosX.ToString() + "-" + ombrellone.Posy.ToString() };
                             omb.FontSize = 10;
