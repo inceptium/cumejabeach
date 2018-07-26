@@ -8,8 +8,8 @@
         <ListView x:Name="listView" x:FieldModifier="public">
             <ListView.ItemsSource>
                 <x:Array Type="{x:Type local:MasterPageItem}">
-                    <local:MasterPageItem Title="Spiaggia" IconSource="ombrellone.png" TargetType="{x:Type local:xaml.Spiaggia}" />
-                    <local:MasterPageItem Title="Impostazioni" IconSource="impostazioni.png" TargetType="{x:Type local:xaml.Impostazioni}" />
+                    <local:MasterPageItem Title="Spiaggia" IconSource="sun-umbrella.png" TargetType="{x:Type local:xaml.Spiaggia}" />
+                    <local:MasterPageItem Title="Impostazioni" IconSource="043-settings.png" TargetType="{x:Type local:xaml.Impostazioni}" />
                 </x:Array>
             </ListView.ItemsSource>
             <ListView.ItemTemplate>
@@ -20,7 +20,6 @@
                                 <ColumnDefinition Width="30"/>
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-
                             <Image Source="{Binding IconSource}" />
                             <Label Grid.Column="1" Text="{Binding Title}" />
                         </Grid>

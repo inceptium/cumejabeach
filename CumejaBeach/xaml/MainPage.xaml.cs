@@ -28,5 +28,6 @@ namespace CumejaBeach.xaml
                 IsPresented = false;
             }
         }
+      
     }
 }

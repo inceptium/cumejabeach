@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using Xamarin.Forms;
+using Plugin.Connectivity;
+using System.Net.Http;
 
 namespace CumejaBeach.xaml
 {
@@ -11,5 +12,7 @@ namespace CumejaBeach.xaml
         {
             InitializeComponent();
         }
+
+
     }
 }
