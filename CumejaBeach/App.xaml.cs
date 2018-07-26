@@ -11,7 +11,7 @@ namespace CumejaBeach
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new CumejaBeach.xaml.MainPage();
         }
 
         protected override void OnStart()
