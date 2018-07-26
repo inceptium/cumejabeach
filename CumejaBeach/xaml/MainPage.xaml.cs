@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 
-namespace CumejaBeach
+namespace CumejaBeach.xaml
 {
-    public partial class Impostazioni : ContentPage
+    public partial class MainPage : MasterDetailPage
     {
-        public Impostazioni()
+        public MainPage()
         {
             InitializeComponent();
         }
