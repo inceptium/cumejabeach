@@ -1,29 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CumejaBeach.xaml.Spiaggia" Title="Cumeja Beach - Disposizione Posti in spiaggia">
-
     <StackLayout>
         <StackLayout BackgroundColor="White" HeightRequest="50" Padding="10,10,10,10">
-            <Button HeightRequest="40" x:Name="bt_aggiorna" Text="  Aggiorna  "  BorderWidth="2" BorderColor="Silver" Clicked="Handle_Clicked" HorizontalOptions="End"/>
+            <Button HeightRequest="40" x:Name="bt_aggiorna" Text="  Aggiorna  " BorderWidth="2" BorderColor="Silver" Clicked="Handle_Clicked" HorizontalOptions="End" />
             <!--<StackLayout HeightRequest="30">
                 <BoxView BackgroundColor="White" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
                 <Label Text="Cumeja Beach - Disposizione Posti in spiaggia"  VerticalOptions="Center" HorizontalOptions="CenterAndExpand" />
 
             </StackLayout>-->
-<!--            <BoxView BackgroundColor="Silver" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" />-->
+            <!--            <BoxView BackgroundColor="Silver" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" />-->
         </StackLayout>
-        <Grid x:Name="GrigliaOmbrelloni" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-            <!--<Label Text="Top Left" Grid.Row="0" Grid.Column="0" />
+        <ScrollView HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Both">
+            <Grid x:Name="GrigliaOmbrelloni" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <!--<Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>-->
+
+                <!--<Label Text="Top Left" Grid.Row="0" Grid.Column="0" />
             <Label Text="Bottom Left2" Grid.Row="0" Grid.Column="6" />
             <Label Text="Bottom Right2" Grid.Row="0" Grid.Column="7" />-->
-        </Grid>
-        <StackLayout BackgroundColor="White" HeightRequest="50">
+            </Grid>
+        </ScrollView>
+        <StackLayout BackgroundColor="White" HeightRequest="70">
             <BoxView BackgroundColor="Silver" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
             <Grid HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
                 <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="200"/>
-                        <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="150" />
                 </Grid.ColumnDefinitions>
-
                 <Label x:Name="lb_monitor" Grid.Row="0" Grid.Column="0" Text="Inceptium App " HorizontalOptions="End" VerticalOptions="CenterAndExpand" />
                 <ActivityIndicator x:Name="Indicator1" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" HorizontalOptions="Start" />
             </Grid>

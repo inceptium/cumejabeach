@@ -5,7 +5,7 @@ using Xamarin.Forms;
 using Plugin.Connectivity;
 using System.Net.Http;
 using System.Threading;
-using Newtonsoft.Json; 
+using Newtonsoft.Json;
 
 namespace CumejaBeach.xaml
 {
@@ -20,7 +20,7 @@ namespace CumejaBeach.xaml
             currentDate = System.DateTime.Now.Day.ToString() + "/" + System.DateTime.Now.Month.ToString() + "/" + System.DateTime.Now.Year.ToString();
             InitializeComponent();
             Indicator1.IsRunning = true;
-            disegnaOmbrelloni();
+            //disegnaOmbrelloni();
             CaricaListaOmbrelloni();
 
             Console.WriteLine("Data -> " + currentDate);
@@ -38,7 +38,7 @@ namespace CumejaBeach.xaml
             GrigliaOmbrelloni.Children.Add(Omb2, 0, 1);
             GrigliaOmbrelloni.Children.Add(Omb3, 1, 0);
             GrigliaOmbrelloni.Children.Add(Omb4, 1, 1);
-           
+
 
             //var img1=new Image {}
 
@@ -73,9 +73,26 @@ namespace CumejaBeach.xaml
                         var risposta = await content.ReadAsStringAsync();
                         //Console.WriteLine(risposta);
                         var ombrellone_List = JsonConvert.DeserializeObject<List<ItemOmbrelloni>>(risposta);
-
-                        foreach( ItemOmbrelloni ombrellone in ombrellone_List){
+                        GrigliaOmbrelloni.Children.Clear();
+                        foreach (ItemOmbrelloni ombrellone in ombrellone_List)
+                        {
                             Console.WriteLine(ombrellone.Codice);
+                            var stack = new StackLayout();
+                            stack.HeightRequest = 70;
+                            stack.WidthRequest = 70;
+                            var omb = new Label { Text = ombrellone.Codice + "\n" + ombrellone.PosX.ToString() + "-" + ombrellone.Posy.ToString() };
+                            //var pos = new Label { Text = ombrellone.PosX.ToString() + "-" + ombrellone.Posy.ToString() };
+                            omb.FontSize = 10;
+                            // pos.FontSize = 10;
+                            omb.VerticalOptions = LayoutOptions.CenterAndExpand;
+                            omb.HorizontalOptions = LayoutOptions.CenterAndExpand;
+                            stack.Children.Add(omb);
+                            //stack.Children.Add(pos);
+                            stack.BackgroundColor = Color.Aqua;
+                            stack.VerticalOptions = LayoutOptions.CenterAndExpand;
+                            stack.HorizontalOptions = LayoutOptions.CenterAndExpand;
+
+                            GrigliaOmbrelloni.Children.Add(stack, ombrellone.PosX - 2, ombrellone.Posy - 2);
                         }
 
                         lb_monitor.Text = "";
