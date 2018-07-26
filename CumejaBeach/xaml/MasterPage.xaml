@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="CumejaBeach.xaml.MasterPage" 
              xmlns:local="using:CumejaBeach" Padding="0,40,0,0" 
-             Icon="hamburger.png" Title="Cumeja Beach">
+             Icon="hamburger.png" Title="Cumeja Beach - Disposizione Posti in spiaggia">
     <StackLayout>
         <ListView x:Name="listView" x:FieldModifier="public">
             <ListView.ItemsSource>

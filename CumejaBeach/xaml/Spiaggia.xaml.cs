@@ -5,20 +5,26 @@ using Xamarin.Forms;
 using Plugin.Connectivity;
 using System.Net.Http;
 using System.Threading;
+using Newtonsoft.Json; 
 
 namespace CumejaBeach.xaml
 {
     public partial class Spiaggia : ContentPage
     {
         CancellationTokenSource tokenSource;
+        String currentDate = "";
 
         public Spiaggia()
         {
             tokenSource = new CancellationTokenSource();
+            currentDate = System.DateTime.Now.Day.ToString() + "/" + System.DateTime.Now.Month.ToString() + "/" + System.DateTime.Now.Year.ToString();
             InitializeComponent();
             Indicator1.IsRunning = true;
             disegnaOmbrelloni();
             CaricaListaOmbrelloni();
+
+            Console.WriteLine("Data -> " + currentDate);
+
         }
 
         private void disegnaOmbrelloni()
@@ -32,10 +38,16 @@ namespace CumejaBeach.xaml
             GrigliaOmbrelloni.Children.Add(Omb2, 0, 1);
             GrigliaOmbrelloni.Children.Add(Omb3, 1, 0);
             GrigliaOmbrelloni.Children.Add(Omb4, 1, 1);
+           
 
             //var img1=new Image {}
 
 
+        }
+
+        public void Handle_Clicked(object sender, System.EventArgs e)
+        {
+            CaricaListaOmbrelloni();
         }
 
         public async void CaricaListaOmbrelloni()
@@ -45,7 +57,7 @@ namespace CumejaBeach.xaml
                 Indicator1.IsRunning = true;
                 lb_monitor.Text = "accesso al server......";
                 var request = new HttpRequestMessage();
-                request.RequestUri = new Uri("http://192.168.101.112/wspa/getpuntiaddebito.aspx?data=26/07/2018");
+                request.RequestUri = new Uri("http://192.168.101.112/wspa/getpuntiaddebito.aspx?data=" + currentDate);
                 request.Method = HttpMethod.Get;
                 request.Headers.Add("Accept", "application/json");
 
@@ -54,12 +66,18 @@ namespace CumejaBeach.xaml
                 try
                 {
                     HttpResponseMessage reposponse = await client.SendAsync(request, tokenSource.Token);
-                    Indicator1.IsRunning = false;
+
                     if (reposponse.StatusCode == System.Net.HttpStatusCode.OK)
                     {
                         HttpContent content = reposponse.Content;
                         var risposta = await content.ReadAsStringAsync();
-                        Console.WriteLine(risposta);
+                        //Console.WriteLine(risposta);
+                        var ombrellone_List = JsonConvert.DeserializeObject<List<ItemOmbrelloni>>(risposta);
+
+                        foreach( ItemOmbrelloni ombrellone in ombrellone_List){
+                            Console.WriteLine(ombrellone.Codice);
+                        }
+
                         lb_monitor.Text = "";
                         //await DisplayAlert("Messaggio 2",risposta.ToString(), "OK");
 
@@ -67,7 +85,7 @@ namespace CumejaBeach.xaml
                 }
                 catch (Exception exception)
                 {
-                    //Console.WriteLine(exception.ToString());
+                    Console.WriteLine(exception.ToString());
                     Indicator1.IsRunning = false;
                     lb_monitor.Text = "Controllo http";
                     await DisplayAlert("messaggio", "problemi di connessione al servert", "OK");
@@ -78,6 +96,7 @@ namespace CumejaBeach.xaml
             {
                 await DisplayAlert("messaggio", "Connettività assente", "OK");
             }
+            Indicator1.IsRunning = false;
 
         }
     }
