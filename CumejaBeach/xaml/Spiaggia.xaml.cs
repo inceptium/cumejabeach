@@ -13,6 +13,7 @@ namespace CumejaBeach.xaml
     {
         CancellationTokenSource tokenSource;
         String currentDate = "";
+        static Spiaggia me;
 
         public Spiaggia()
         {
@@ -24,8 +25,11 @@ namespace CumejaBeach.xaml
             CaricaListaOmbrelloni();
 
             Console.WriteLine("Data -> " + currentDate);
+            me = this;
 
         }
+
+
 
         private void disegnaOmbrelloni()
         {
@@ -74,7 +78,7 @@ namespace CumejaBeach.xaml
                         //Console.WriteLine(risposta);
                         var ombrellone_List = JsonConvert.DeserializeObject<List<ItemOmbrelloni>>(risposta);
                         GrigliaOmbrelloni.Children.Clear();
-                        int xx = 0; 
+                        int xx = 0;
                         int yy = 0;
 
                         foreach (ItemOmbrelloni ombrellone in ombrellone_List)
@@ -82,38 +86,54 @@ namespace CumejaBeach.xaml
                             if (!ombrellone.Codice.StartsWith("L"))
                             {
                                 Console.WriteLine(ombrellone.Codice);
-                                var stack = new StackLayout();
-                                stack.HeightRequest = 130;
-                                stack.WidthRequest = 120;
-                                var omb = new Label { Text = ombrellone.Codice };
-                                var cellaimm = getImmagineOmbrellone(ombrellone);
-                                cellaimm.HorizontalOptions = LayoutOptions.Center;
-                                //cellaimm.VerticalOptions = LayoutOptions.Center;
+                                //var stack = new StackLayout();
 
-                                //var pos = new Label { Text = ombrellone.PosX.ToString() + "-" + ombrellone.Posy.ToString() };
-                                omb.FontSize = 12;
-                                // pos.FontSize = 10;
-                                omb.VerticalOptions = LayoutOptions.End;
-                                omb.HorizontalOptions = LayoutOptions.CenterAndExpand;
-                                stack.Children.Add(cellaimm);
-                                stack.Children.Add(omb);
-                                //stack.Children.Add(pos);
-                                //stack.BackgroundColor = Color.Aqua;
-                                stack.VerticalOptions = LayoutOptions.CenterAndExpand;
-                                stack.HorizontalOptions = LayoutOptions.CenterAndExpand;
-                               
+                                var stack = new StackOmbrellone();
+                                stack.itemOmbrelloni = ombrellone;
+                                stack.Disegna();
+                                stack.evt_tap = new eventotap();
+
+
+                                //stack.HeightRequest = 250;
+                                //stack.WidthRequest = 120;
+                                //var omb = new Label { Text = ombrellone.Codice };
+                                //var ret = new BoxView();
+                                //var cellaimm = getImmagineOmbrellone(ombrellone);
+                                //ret.HeightRequest = 35;
+                                //ret.WidthRequest = 100;
+                                //ret.BackgroundColor = Color.FromRgb(240, 240, 255);
+                                //ret.HorizontalOptions = LayoutOptions.CenterAndExpand;
+                                //cellaimm.HorizontalOptions = LayoutOptions.Center;
+                                ////cellaimm.VerticalOptions = LayoutOptions.Center;
+
+                                ////var pos = new Label { Text = ombrellone.PosX.ToString() + "-" + ombrellone.Posy.ToString() };
+                                //omb.FontSize = 20;
+                                //omb.FontAttributes = FontAttributes.Bold;
+                                //// pos.FontSize = 10;
+                                //omb.VerticalOptions = LayoutOptions.End;
+                                //omb.HorizontalOptions = LayoutOptions.CenterAndExpand;
+                                //stack.Children.Add(cellaimm);
+                                //stack.Children.Add(ret);
+                                //stack.Children.Add(omb);
+                                ////stack.Children.Add(pos);
+                                ////stack.BackgroundColor = Color.Aqua;
+                                //stack.VerticalOptions = LayoutOptions.CenterAndExpand;
+                                //stack.HorizontalOptions = LayoutOptions.CenterAndExpand;
+
                                 GrigliaOmbrelloni.Children.Add(stack, xx, yy);
                                 xx++;
-                                if (xx==8){
-                                    xx++;;
+                                if (xx == 8)
+                                {
+                                    xx++; ;
                                 }
-                                if (xx==21){
+                                if (xx == 21)
+                                {
                                     yy++;
                                     xx = 0;
                                 }
 
                             }
-                            scroolOmbrelloni.WidthRequest = Content.Width;
+                            //scroolOmbrelloni.WidthRequest = Content.Width;
                         }
 
                         lb_monitor.Text = "";
@@ -138,29 +158,16 @@ namespace CumejaBeach.xaml
 
         }
 
-        private Image getImmagineOmbrellone(ItemOmbrelloni omb)
+        class eventotap : EventoTapOmbrellone
         {
-            Image rest = null;
-            switch (omb.Stato)
+            public void OnTapOmbrellone(ItemOmbrelloni item)
             {
-                case 0:
-                    rest = new Image { Source = "OmbRossoApertoOccupato.png" };
-                    break;
-                case 1:
-                    rest = new Image { Source = "OmbVerdeChiusoLibero.png" };
-                    break;
-                case 2:
-                    rest = new Image { Source = "OmbGialloApertoPartenza.png" };
-                    break;
-                case 3:
-                    rest = new Image { Source = "OmbViolaChiusoPrenotato.png" };
-                    break;
-                case 4:
-                    rest = new Image { Source = "OmbVerdeChiusoLibero.png" };
-                    break;
-
+                Spiaggia.me.DisplayAlert("Info Ombrellone", item.Info, "OK");
             }
-            return rest;
         }
+
+
     }
+
+
 }
