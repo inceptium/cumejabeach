@@ -98,6 +98,7 @@
     <None Include="Resources\ombrellone.png" />
     <None Include="Resources\impostazioni%402x.png" />
     <None Include="Resources\ombrellone%402x.png" />
+    <Compile Include="ZoomScrollViewRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

@@ -113,6 +113,7 @@ namespace CumejaBeach.xaml
                                 }
 
                             }
+                            scroolOmbrelloni.WidthRequest = Content.Width;
                         }
 
                         lb_monitor.Text = "";

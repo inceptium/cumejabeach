@@ -10,7 +10,7 @@
             </StackLayout>-->
             <!--            <BoxView BackgroundColor="Silver" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" />-->
         </StackLayout>
-        <ScrollView HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Both">
+        <ScrollView x:Name="scroolOmbrelloni" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Both">
             <Grid x:Name="GrigliaOmbrelloni" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                 <!--<Grid.ColumnDefinitions>
                     <ColumnDefinition Width="200" />
