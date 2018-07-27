@@ -74,25 +74,45 @@ namespace CumejaBeach.xaml
                         //Console.WriteLine(risposta);
                         var ombrellone_List = JsonConvert.DeserializeObject<List<ItemOmbrelloni>>(risposta);
                         GrigliaOmbrelloni.Children.Clear();
+                        int xx = 0; 
+                        int yy = 0;
+
                         foreach (ItemOmbrelloni ombrellone in ombrellone_List)
                         {
-                            Console.WriteLine(ombrellone.Codice);
-                            var stack = new StackLayout();
-                            stack.HeightRequest = 50;
-                            stack.WidthRequest = 50;
-                            var omb = new Label { Text = ombrellone.Codice + "\n" + ombrellone.PosX.ToString() + "-" + ombrellone.Posy.ToString() };
-                            //var pos = new Label { Text = ombrellone.PosX.ToString() + "-" + ombrellone.Posy.ToString() };
-                            omb.FontSize = 10;
-                            // pos.FontSize = 10;
-                            omb.VerticalOptions = LayoutOptions.CenterAndExpand;
-                            omb.HorizontalOptions = LayoutOptions.CenterAndExpand;
-                            stack.Children.Add(omb);
-                            //stack.Children.Add(pos);
-                            stack.BackgroundColor = Color.Aqua;
-                            stack.VerticalOptions = LayoutOptions.CenterAndExpand;
-                            stack.HorizontalOptions = LayoutOptions.CenterAndExpand;
+                            if (!ombrellone.Codice.StartsWith("L"))
+                            {
+                                Console.WriteLine(ombrellone.Codice);
+                                var stack = new StackLayout();
+                                stack.HeightRequest = 130;
+                                stack.WidthRequest = 120;
+                                var omb = new Label { Text = ombrellone.Codice };
+                                var cellaimm = getImmagineOmbrellone(ombrellone);
+                                cellaimm.HorizontalOptions = LayoutOptions.Center;
+                                //cellaimm.VerticalOptions = LayoutOptions.Center;
 
-                            GrigliaOmbrelloni.Children.Add(stack, ombrellone.PosX - 2, ombrellone.Posy - 2);
+                                //var pos = new Label { Text = ombrellone.PosX.ToString() + "-" + ombrellone.Posy.ToString() };
+                                omb.FontSize = 12;
+                                // pos.FontSize = 10;
+                                omb.VerticalOptions = LayoutOptions.End;
+                                omb.HorizontalOptions = LayoutOptions.CenterAndExpand;
+                                stack.Children.Add(cellaimm);
+                                stack.Children.Add(omb);
+                                //stack.Children.Add(pos);
+                                //stack.BackgroundColor = Color.Aqua;
+                                stack.VerticalOptions = LayoutOptions.CenterAndExpand;
+                                stack.HorizontalOptions = LayoutOptions.CenterAndExpand;
+                               
+                                GrigliaOmbrelloni.Children.Add(stack, xx, yy);
+                                xx++;
+                                if (xx==8){
+                                    xx++;;
+                                }
+                                if (xx==21){
+                                    yy++;
+                                    xx = 0;
+                                }
+
+                            }
                         }
 
                         lb_monitor.Text = "";
@@ -115,6 +135,31 @@ namespace CumejaBeach.xaml
             }
             Indicator1.IsRunning = false;
 
+        }
+
+        private Image getImmagineOmbrellone(ItemOmbrelloni omb)
+        {
+            Image rest = null;
+            switch (omb.Stato)
+            {
+                case 0:
+                    rest = new Image { Source = "OmbRossoApertoOccupato.png" };
+                    break;
+                case 1:
+                    rest = new Image { Source = "OmbVerdeChiusoLibero.png" };
+                    break;
+                case 2:
+                    rest = new Image { Source = "OmbGialloApertoPartenza.png" };
+                    break;
+                case 3:
+                    rest = new Image { Source = "OmbViolaChiusoPrenotato.png" };
+                    break;
+                case 4:
+                    rest = new Image { Source = "OmbVerdeChiusoLibero.png" };
+                    break;
+
+            }
+            return rest;
         }
     }
 }

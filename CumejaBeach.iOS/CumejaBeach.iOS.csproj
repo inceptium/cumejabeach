@@ -170,5 +170,9 @@
     <BundleResource Include="Resources\posto.png" />
     <BundleResource Include="Resources\043-settings.png" />
     <BundleResource Include="Resources\sun-umbrella.png" />
+    <BundleResource Include="Resources\OmbGialloApertoPartenza.png" />
+    <BundleResource Include="Resources\OmbViolaChiusoPrenotato.png" />
+    <BundleResource Include="Resources\OmbRossoApertoOccupato.png" />
+    <BundleResource Include="Resources\OmbVerdeChiusoLibero.png" />
   </ItemGroup>
 </Project>
