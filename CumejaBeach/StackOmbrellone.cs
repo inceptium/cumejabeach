@@ -11,7 +11,12 @@ namespace CumejaBeach
     public class StackOmbrellone : StackLayout
     {
         public ItemOmbrelloni itemOmbrelloni { get; set; }
-        public EventoTapOmbrellone evt_tap { get;set; }
+
+        public EventoTapOmbrellone evt_tap { get; set; }
+
+        public string CodiceOmbrellone { get; set; }
+
+
 
         public StackOmbrellone()
         {
@@ -22,20 +27,20 @@ namespace CumejaBeach
 
 
 
+
         }
 
         private void eventoTap()
         {
             //DisplayAlert("messaggio", itemOmbrelloni.Info, "OK");
-            if (evt_tap!=null){
+            if (evt_tap != null)
+            {
                 evt_tap.OnTapOmbrellone(itemOmbrelloni);
             }
         }
 
-        public void Disegna(){
-           
-           
-
+        public void Disegna()
+        {
 
             this.HeightRequest = 250;
             this.WidthRequest = 120;
@@ -50,7 +55,7 @@ namespace CumejaBeach
             //cellaimm.VerticalOptions = LayoutOptions.Center;
 
             //var pos = new Label { Text = ombrellone.PosX.ToString() + "-" + ombrellone.Posy.ToString() };
-            omb.FontSize = 20;
+            omb.FontSize = 35;
             omb.FontAttributes = FontAttributes.Bold;
             // pos.FontSize = 10;
             omb.VerticalOptions = LayoutOptions.End;

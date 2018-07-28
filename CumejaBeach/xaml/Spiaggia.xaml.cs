@@ -14,6 +14,7 @@ namespace CumejaBeach.xaml
         CancellationTokenSource tokenSource;
         String currentDate = "";
         static Spiaggia me;
+        EventoTap eventotap;
 
         public Spiaggia()
         {
@@ -26,13 +27,42 @@ namespace CumejaBeach.xaml
 
             Console.WriteLine("Data -> " + currentDate);
             me = this;
+            eventotap = new EventoTap();
+
+            startDatePicker.Unfocused+=StartDatePicker_Unfocused;
+           
+            //btInfo_ok.Clicked+=BtInfo_Ok_Clicked;
 
         }
 
+        void BtInfo_Ok_Clicked(object sender, EventArgs e)
+        {
+            //overlay.IsVisible = false;
+        }
+
+        void Handle_DateSelected(object sender, Xamarin.Forms.DateChangedEventArgs e)
+        {
+            
+
+
+
+        }
+
+        void StartDatePicker_Unfocused(object sender, FocusEventArgs e)
+
+        {
+            currentDate = startDatePicker.Date.Day.ToString() + "/" + startDatePicker.Date.Month.ToString() + "/" + startDatePicker.Date.Year.ToString();
+            CaricaListaOmbrelloni();
+        }
+      
+
+       
 
 
         public void Handle_Clicked(object sender, System.EventArgs e)
         {
+            
+            currentDate = startDatePicker.Date.Day.ToString() + "/" + startDatePicker.Date.Month.ToString() + "/" + startDatePicker.Date.Year.ToString();
             CaricaListaOmbrelloni();
         }
 
@@ -67,40 +97,16 @@ namespace CumejaBeach.xaml
                         {
                             if (!ombrellone.Codice.StartsWith("L"))
                             {
-                                Console.WriteLine(ombrellone.Codice);
+                                //Console.WriteLine(ombrellone.Codice);
                                 //var stack = new StackLayout();
 
                                 var stack = new StackOmbrellone();
                                 stack.itemOmbrelloni = ombrellone;
                                 stack.Disegna();
-                                stack.evt_tap = new eventotap();
+
+                                stack.evt_tap = eventotap;
 
 
-                                //stack.HeightRequest = 250;
-                                //stack.WidthRequest = 120;
-                                //var omb = new Label { Text = ombrellone.Codice };
-                                //var ret = new BoxView();
-                                //var cellaimm = getImmagineOmbrellone(ombrellone);
-                                //ret.HeightRequest = 35;
-                                //ret.WidthRequest = 100;
-                                //ret.BackgroundColor = Color.FromRgb(240, 240, 255);
-                                //ret.HorizontalOptions = LayoutOptions.CenterAndExpand;
-                                //cellaimm.HorizontalOptions = LayoutOptions.Center;
-                                ////cellaimm.VerticalOptions = LayoutOptions.Center;
-
-                                ////var pos = new Label { Text = ombrellone.PosX.ToString() + "-" + ombrellone.Posy.ToString() };
-                                //omb.FontSize = 20;
-                                //omb.FontAttributes = FontAttributes.Bold;
-                                //// pos.FontSize = 10;
-                                //omb.VerticalOptions = LayoutOptions.End;
-                                //omb.HorizontalOptions = LayoutOptions.CenterAndExpand;
-                                //stack.Children.Add(cellaimm);
-                                //stack.Children.Add(ret);
-                                //stack.Children.Add(omb);
-                                ////stack.Children.Add(pos);
-                                ////stack.BackgroundColor = Color.Aqua;
-                                //stack.VerticalOptions = LayoutOptions.CenterAndExpand;
-                                //stack.HorizontalOptions = LayoutOptions.CenterAndExpand;
 
                                 GrigliaOmbrelloni.Children.Add(stack, xx, yy);
                                 xx++;
@@ -119,6 +125,7 @@ namespace CumejaBeach.xaml
                         }
 
                         lb_monitor.Text = "";
+                        Console.WriteLine("tot elementi in griglia -> " + GrigliaOmbrelloni.Children.Count.ToString());
                         //await DisplayAlert("Messaggio 2",risposta.ToString(), "OK");
 
                     }
@@ -140,11 +147,14 @@ namespace CumejaBeach.xaml
 
         }
 
-        class eventotap : EventoTapOmbrellone
+        class EventoTap : EventoTapOmbrellone
         {
             public void OnTapOmbrellone(ItemOmbrelloni item)
             {
-                Spiaggia.me.DisplayAlert("Info Ombrellone", item.Info, "OK");
+                Spiaggia.me.DisplayAlert("Info Ombrellone "+item.Codice, item.Info, "OK");
+                //Spiaggia.me.InfoLabel_titolo.Text = "Info Ombrellone " + item.Codice;
+                //Spiaggia.me.InfoLabel_Content.Text = item.Info;
+                //Spiaggia.me.overlay.IsVisible = true;
             }
         }
 

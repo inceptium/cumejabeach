@@ -9,6 +9,8 @@
             <ListView.ItemsSource>
                 <x:Array Type="{x:Type local:MasterPageItem}">
                     <local:MasterPageItem Title="Spiaggia" IconSource="sun-umbrella.png" TargetType="{x:Type local:xaml.Spiaggia}" />
+                    <local:MasterPageItem Title="Beach Bar" IconSource="sun-umbrella.png" TargetType="{x:Type local:xaml.BeachBar}" />
+                    <local:MasterPageItem Title="Altro menu" IconSource="sun-umbrella.png" TargetType="{x:Type local:xaml.Spiaggia}" />
                     <local:MasterPageItem Title="Impostazioni" IconSource="043-settings.png" TargetType="{x:Type local:xaml.Impostazioni}" />
                 </x:Array>
             </ListView.ItemsSource>

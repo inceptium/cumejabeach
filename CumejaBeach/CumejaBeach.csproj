@@ -13,4 +13,10 @@
     <Folder Include="XAML\" />
     <Folder Include="CS\" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="xaml\Impostazioni.xaml %28copia%29.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="xaml\Impostazioni %28copia%29.xaml" />
+  </ItemGroup>
 </Project>

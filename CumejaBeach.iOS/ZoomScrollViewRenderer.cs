@@ -14,7 +14,7 @@ namespace ZoomableApp.iOS.Renderers
 		{
 			base.OnElementChanged(e);
 			MaximumZoomScale = 1f;
-			MinimumZoomScale = 0.5f;
+			MinimumZoomScale = 0.37f;
 
 
 		}
