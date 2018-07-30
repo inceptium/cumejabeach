@@ -29,8 +29,8 @@ namespace CumejaBeach.xaml
             me = this;
             eventotap = new EventoTap();
 
-            startDatePicker.Unfocused+=StartDatePicker_Unfocused;
-           
+            startDatePicker.Unfocused += StartDatePicker_Unfocused;
+
             //btInfo_ok.Clicked+=BtInfo_Ok_Clicked;
 
         }
@@ -42,7 +42,7 @@ namespace CumejaBeach.xaml
 
         void Handle_DateSelected(object sender, Xamarin.Forms.DateChangedEventArgs e)
         {
-            
+
 
 
 
@@ -54,14 +54,14 @@ namespace CumejaBeach.xaml
             currentDate = startDatePicker.Date.Day.ToString() + "/" + startDatePicker.Date.Month.ToString() + "/" + startDatePicker.Date.Year.ToString();
             CaricaListaOmbrelloni();
         }
-      
 
-       
+
+
 
 
         public void Handle_Clicked(object sender, System.EventArgs e)
         {
-            
+
             currentDate = startDatePicker.Date.Day.ToString() + "/" + startDatePicker.Date.Month.ToString() + "/" + startDatePicker.Date.Year.ToString();
             CaricaListaOmbrelloni();
         }
@@ -147,15 +147,24 @@ namespace CumejaBeach.xaml
 
         }
 
+        public async void chiamaImpostazioni()
+        {
+            await Navigation.PushAsync(new Impostazioni());
+        }
+
         class EventoTap : EventoTapOmbrellone
         {
             public void OnTapOmbrellone(ItemOmbrelloni item)
             {
-                Spiaggia.me.DisplayAlert("Info Ombrellone "+item.Codice, item.Info, "OK");
+                //Spiaggia.me.DisplayAlert("Info Ombrellone " + item.Codice, item.Info, "OK");
+                Spiaggia.me.chiamaImpostazioni();
+
                 //Spiaggia.me.InfoLabel_titolo.Text = "Info Ombrellone " + item.Codice;
                 //Spiaggia.me.InfoLabel_Content.Text = item.Info;
                 //Spiaggia.me.overlay.IsVisible = true;
             }
+
+           
         }
 
 

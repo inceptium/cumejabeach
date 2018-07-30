@@ -10,6 +10,21 @@ namespace CumejaBeach.xaml
         public Impostazioni()
         {
             InitializeComponent();
+            Bottone.Clicked+=Bottone_Clicked;
+            bt_beachBar.Clicked+=Bt_BeachBar_Clicked;
         }
+
+        async void Bt_BeachBar_Clicked(object sender, EventArgs e)
+        {
+          
+            await Navigation.PushAsync(new BeachBar());
+        }
+
+
+        async void Bottone_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
+
     }
 }

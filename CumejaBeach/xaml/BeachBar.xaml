@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CumejaBeach.xaml.BeachBar">
     <ContentPage.Content>
-        <Label Text="Beach Bar" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+        <Button x:Name="bt_vai_spiaggia" Text="Beach Bar -> torna spiagga" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
     </ContentPage.Content>
 </ContentPage>

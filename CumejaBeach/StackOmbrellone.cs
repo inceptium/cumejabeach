@@ -20,24 +20,41 @@ namespace CumejaBeach
 
         public StackOmbrellone()
         {
-            this.GestureRecognizers.Add(new TapGestureRecognizer()
-            {
-                Command = new Command(() => { eventoTap(); })
-            });
+            
+            var tapRecognizer = new TapGestureRecognizer();
+            tapRecognizer.Tapped+=TapRecognizer_Tapped;
+           
+            this.GestureRecognizers.Add(tapRecognizer);
+
+
+
+            //this.GestureRecognizers.Add(new TapGestureRecognizer()
+            //{
+            //    Command = new Command(() => { eventoTap(); })
+            //});
 
 
 
 
         }
 
-        private void eventoTap()
+        //private void eventoTap()
+        //{
+        //    //DisplayAlert("messaggio", itemOmbrelloni.Info, "OK");
+        //    if (evt_tap != null)
+        //    {
+        //        evt_tap.OnTapOmbrellone(itemOmbrelloni);
+        //    }
+        //}
+
+        void TapRecognizer_Tapped(object sender, EventArgs e)
         {
-            //DisplayAlert("messaggio", itemOmbrelloni.Info, "OK");
             if (evt_tap != null)
             {
                 evt_tap.OnTapOmbrellone(itemOmbrelloni);
             }
         }
+
 
         public void Disegna()
         {
