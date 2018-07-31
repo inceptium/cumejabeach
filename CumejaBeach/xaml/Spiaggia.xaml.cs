@@ -6,6 +6,7 @@ using Plugin.Connectivity;
 using System.Net.Http;
 using System.Threading;
 using Newtonsoft.Json;
+using CumejaBeach.XAML.pos;
 
 namespace CumejaBeach.xaml
 {
@@ -147,9 +148,11 @@ namespace CumejaBeach.xaml
 
         }
 
-        public async void chiamaImpostazioni()
+        public async void chiamaPos(String titolo)
         {
-            await Navigation.PushAsync(new Impostazioni());
+            var pos = new PosForm();
+            pos.setTitolo(titolo);
+            await Navigation.PushAsync(pos);
         }
 
         class EventoTap : EventoTapOmbrellone
@@ -157,14 +160,14 @@ namespace CumejaBeach.xaml
             public void OnTapOmbrellone(ItemOmbrelloni item)
             {
                 //Spiaggia.me.DisplayAlert("Info Ombrellone " + item.Codice, item.Info, "OK");
-                Spiaggia.me.chiamaImpostazioni();
+                Spiaggia.me.chiamaPos("Consegna Ordine all'Ombrellone n: " + item.Codice);
 
                 //Spiaggia.me.InfoLabel_titolo.Text = "Info Ombrellone " + item.Codice;
                 //Spiaggia.me.InfoLabel_Content.Text = item.Info;
                 //Spiaggia.me.overlay.IsVisible = true;
             }
 
-           
+
         }
 
 
