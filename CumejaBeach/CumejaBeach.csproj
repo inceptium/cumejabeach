@@ -10,9 +10,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="XAML\" />
     <Folder Include="CS\" />
-    <Folder Include="XAML\pos\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="xaml\Impostazioni.xaml %28copia%29.cs" />

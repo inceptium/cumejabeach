@@ -119,20 +119,20 @@
                     <Frame HasShadow="false" BorderColor="Silver" VerticalOptions="FillAndExpand" HorizontalOptions="End" WidthRequest="200">
                         <StackLayout>
                             <ScrollView BackgroundColor="#C7983C" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                                <Grid Padding="7,7,7,7" RowSpacing="5">
+                                <Grid Padding="7,7,7,7" RowSpacing="8">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="60" />
                                         <RowDefinition Height="60" />
                                         <RowDefinition Height="60" />
                                         <RowDefinition Height="*" />
                                     </Grid.RowDefinitions>
-                                    <Frame Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                    <Frame HasShadow="false" Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                         <Label TextColor="#99672E" FontAttributes="Bold" Text="PANINI" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center" />
                                     </Frame>
-                                    <Frame Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                    <Frame HasShadow="false" Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                         <Label BackgroundColor="#99672E" FontAttributes="Bold" TextColor="White" Text="PIZZE" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center" />
                                     </Frame>
-                                    <Frame Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                    <Frame HasShadow="false" Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                         <Label TextColor="#99672E" FontAttributes="Bold" Text="BIBITE" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center" />
                                     </Frame>
                                 </Grid>
@@ -147,6 +147,7 @@
                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
                     <Button BorderWidth="2" BorderColor="#E8E8E8" Text="Codice Scheda" HorizontalOptions="Start" WidthRequest="200" />
                     <Button BorderWidth="2" BorderColor="#E8E8E8" Text="Cliente" HorizontalOptions="FillAndExpand" />
+                    <Button BorderWidth="2" BorderColor="#E8E8E8" Text="Camera" HorizontalOptions="FillAndExpand" />
                     <Button BorderWidth="2" BorderColor="Black" FontSize="20" FontAttributes="Bold" BackgroundColor="#BD1D0B" TextColor="White" Text="Invia Ordine" HorizontalOptions="End" WidthRequest="200" />
                 </StackLayout>
             </Frame>
