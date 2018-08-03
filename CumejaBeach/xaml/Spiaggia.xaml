@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CumejaBeach.xaml.Spiaggia" Title="Cumeja Beach - Disposizione Posti in spiaggia">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CumejaBeach.xaml.Spiaggia" Title="Cumeja Beach - Disposizione Posti in spiaggia" xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms">
     <StackLayout Padding="10,0,0,0">
-        <StackLayout BackgroundColor="White" HeightRequest="50" Padding="10,10,10,10" VerticalOptions="Start">
-            <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="Start" HeightRequest="45">
+        <StackLayout Orientation="Horizontal" BackgroundColor="White" HeightRequest="50" Padding="10,10,10,10" VerticalOptions="Start">
+            <DatePicker x:Name="startDatePicker" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Format="D" />
+            <Button  HeightRequest="40" x:Name="bt_aggiorna" Text="  Aggiorna  " BorderWidth="2" BorderColor="Silver" Clicked="Handle_Clicked" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+
+
+            <!--<Grid HorizontalOptions="CenterAndExpand" VerticalOptions="Start" HeightRequest="45">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="45"/>
-                    <RowDefinition Height="*"/>
-                    
+                    <RowDefinition Height="45" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <DatePicker x:Name="startDatePicker" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="0" Format="D" />
-                <Button Grid.Row="0" Grid.Column="1" HeightRequest="40" x:Name="bt_aggiorna" Text="  Aggiorna  " BorderWidth="2" BorderColor="Silver" Clicked="Handle_Clicked" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-            </Grid>
-            <!--<StackLayout HeightRequest="30">
-                <BoxView BackgroundColor="White" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
-                <Label Text="Cumeja Beach - Disposizione Posti in spiaggia"  VerticalOptions="Center" HorizontalOptions="CenterAndExpand" />
+                <Button Grid.Row="0" Grid.Column="1" HeightRequest="40" x:Name="bt_aggiorna" Text="  Aggiorna  " BorderWidth="2" BorderColor="Silver" Clicked="Handle_Clicked" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                <controls:CheckBox x:Name="ch_box" Grid.Row="0" Grid.Column="2" DefaultText="Usa Pos" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+            </Grid>-->
 
-            </StackLayout>-->
-            <!--            <BoxView BackgroundColor="Silver" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" />-->
         </StackLayout>
         <ScrollView x:Name="scroolOmbrelloni" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Both">
             <Grid x:Name="GrigliaOmbrelloni" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">

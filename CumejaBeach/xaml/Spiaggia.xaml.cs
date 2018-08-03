@@ -159,8 +159,17 @@ namespace CumejaBeach.xaml
         {
             public void OnTapOmbrellone(ItemOmbrelloni item)
             {
+                if (item.Stato == 0)
+                {
+                    Spiaggia.me.chiamaPos("Consegna Ordine all'Ombrellone n: " + item.Codice);
+                }
+                else
+                {
+                    Spiaggia.me.DisplayAlert("Attenzione !!!", "Questo Posto non è occupato", "OK");
+                }
+
+
                 //Spiaggia.me.DisplayAlert("Info Ombrellone " + item.Codice, item.Info, "OK");
-                Spiaggia.me.chiamaPos("Consegna Ordine all'Ombrellone n: " + item.Codice);
 
                 //Spiaggia.me.InfoLabel_titolo.Text = "Info Ombrellone " + item.Codice;
                 //Spiaggia.me.InfoLabel_Content.Text = item.Info;
