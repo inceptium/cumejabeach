@@ -176,5 +176,20 @@
     <BundleResource Include="Resources\OmbViolaChiusoPrenotato.png" />
     <BundleResource Include="Resources\OmbRossoApertoOccupato.png" />
     <BundleResource Include="Resources\OmbVerdeChiusoLibero.png" />
+    <BundleResource Include="Resources\tab_about.png" />
+    <BundleResource Include="Resources\tab_about%402x.png" />
+    <BundleResource Include="Resources\tab_about%403x.png" />
+    <BundleResource Include="Resources\tab_feed.png" />
+    <BundleResource Include="Resources\tab_feed%402x.png" />
+    <BundleResource Include="Resources\tab_feed%403x.png" />
+    <BundleResource Include="Resources\checkborder.png" />
+    <BundleResource Include="Resources\checkborder%402x.png" />
+    <BundleResource Include="Resources\checkborder%403x.png" />
+    <BundleResource Include="Resources\checkcheckedbg.png" />
+    <BundleResource Include="Resources\checkcheckedbg%402x.png" />
+    <BundleResource Include="Resources\checkcheckedbg%403x.png" />
+    <BundleResource Include="Resources\checkcheckmark.png" />
+    <BundleResource Include="Resources\checkcheckmark%402x.png" />
+    <BundleResource Include="Resources\checkcheckmark%403x.png" />
   </ItemGroup>
 </Project>

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CumejaBeach.xaml.Spiaggia" Title="Cumeja Beach - Disposizione Posti in spiaggia" xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CumejaBeach.xaml.Spiaggia" Title="Cumeja Beach - Disposizione Posti in spiaggia" xmlns:ctrls="clr-namespace:CumejaBeach.xaml">
     <StackLayout Padding="10,0,0,0">
         <StackLayout Orientation="Horizontal" BackgroundColor="White" HeightRequest="50" Padding="10,10,10,10" VerticalOptions="Start">
-            <DatePicker x:Name="startDatePicker" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Format="D" />
-            <Button  HeightRequest="40" x:Name="bt_aggiorna" Text="  Aggiorna  " BorderWidth="2" BorderColor="Silver" Clicked="Handle_Clicked" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-
-
+            <ctrls:inc_CheckBox x:Name="cb_pos" Title="Usa Cumeja Pos" IsChecked="false" BorderImageSource="checkborder" CheckedBackgroundImageSource="checkcheckedbg" CheckmarkImageSource="checkcheckmark" HorizontalOptions="FillAndExpand" />
+            <DatePicker x:Name="startDatePicker" HorizontalOptions="End" VerticalOptions="CenterAndExpand" Format="D" />
+            <Button HeightRequest="40" x:Name="bt_aggiorna" Text="  Aggiorna  " BorderWidth="2" BorderColor="Silver" Clicked="Handle_Clicked" HorizontalOptions="End" VerticalOptions="CenterAndExpand" />
             <!--<Grid HorizontalOptions="CenterAndExpand" VerticalOptions="Start" HeightRequest="45">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="45" />
@@ -15,7 +14,6 @@
                 <Button Grid.Row="0" Grid.Column="1" HeightRequest="40" x:Name="bt_aggiorna" Text="  Aggiorna  " BorderWidth="2" BorderColor="Silver" Clicked="Handle_Clicked" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
                 <controls:CheckBox x:Name="ch_box" Grid.Row="0" Grid.Column="2" DefaultText="Usa Pos" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
             </Grid>-->
-
         </StackLayout>
         <ScrollView x:Name="scroolOmbrelloni" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Both">
             <Grid x:Name="GrigliaOmbrelloni" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
