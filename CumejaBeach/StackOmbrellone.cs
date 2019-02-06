@@ -66,7 +66,7 @@ namespace CumejaBeach
             var cellaimm = getImmagineOmbrellone(itemOmbrelloni);
             ret.HeightRequest = 35;
             ret.WidthRequest = 100;
-            ret.BackgroundColor = Color.FromRgb(240, 240, 254);
+            ret.BackgroundColor = Color.FromRgb(240, 240, 255);
             ret.HorizontalOptions = LayoutOptions.CenterAndExpand;
             cellaimm.HorizontalOptions = LayoutOptions.Center;
             //cellaimm.VerticalOptions = LayoutOptions.Center;
