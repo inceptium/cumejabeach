@@ -6,11 +6,12 @@
 
   <ItemGroup>
     <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
-    <PackageReference Include="Xamarin.Forms" Version="3.1.0.637273" />
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Xamarin.Forms" Version="3.6.0.344457" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CS\" />
+    <Folder Include="XAML\ring\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="xaml\Impostazioni.xaml %28copia%29.cs" />

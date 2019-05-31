@@ -4,7 +4,8 @@
         <StackLayout Orientation="Horizontal" BackgroundColor="White" HeightRequest="50" Padding="10,10,10,10" VerticalOptions="Start">
             <ctrls:inc_CheckBox x:Name="cb_pos" Title="Usa Cumeja Pos" IsChecked="false" BorderImageSource="checkborder" CheckedBackgroundImageSource="checkcheckedbg" CheckmarkImageSource="checkcheckmark" HorizontalOptions="FillAndExpand" />
             <DatePicker x:Name="startDatePicker" HorizontalOptions="End" VerticalOptions="CenterAndExpand" Format="D" />
-            <Button HeightRequest="40" x:Name="bt_aggiorna" Text="  Aggiorna  " BorderWidth="2" BorderColor="Silver" Clicked="Handle_Clicked" HorizontalOptions="End" VerticalOptions="CenterAndExpand" />
+            <Button HeightRequest="40" x:Name="bt_aggiorna" Text="  Aggiorna Stato Omb  " BorderWidth="2" BorderColor="Silver" Clicked="Handle_Clicked" HorizontalOptions="End" VerticalOptions="CenterAndExpand" />
+            <Button HeightRequest="40" x:Name="bt_lista_ring" Text="  Ring !!!  " BorderWidth="2" BorderColor="Silver" Clicked="Handle_Ring_Clicked" HorizontalOptions="End" VerticalOptions="CenterAndExpand" />
             <!--<Grid HorizontalOptions="CenterAndExpand" VerticalOptions="Start" HeightRequest="45">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="45" />

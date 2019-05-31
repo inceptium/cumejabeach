@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Threading;
 using Newtonsoft.Json;
 using CumejaBeach.XAML.pos;
+using CumejaBeach.XAML.ring;
 
 namespace CumejaBeach.xaml
 {
@@ -46,7 +47,6 @@ namespace CumejaBeach.xaml
 
 
 
-
         }
 
         void StartDatePicker_Unfocused(object sender, FocusEventArgs e)
@@ -65,7 +65,16 @@ namespace CumejaBeach.xaml
 
             currentDate = startDatePicker.Date.Day.ToString() + "/" + startDatePicker.Date.Month.ToString() + "/" + startDatePicker.Date.Year.ToString();
             CaricaListaOmbrelloni();
+
         }
+
+        public void Handle_Ring_Clicked(object sender, System.EventArgs e)
+        {
+
+            chiamaCumejaRing();
+
+        }
+
 
         public async void CaricaListaOmbrelloni()
         {
@@ -88,7 +97,7 @@ namespace CumejaBeach.xaml
                     {
                         HttpContent content = reposponse.Content;
                         var risposta = await content.ReadAsStringAsync();
-                        //Console.WriteLine(risposta);
+                        Console.WriteLine(risposta);
                         var ombrellone_List = JsonConvert.DeserializeObject<List<ItemOmbrelloni>>(risposta);
                         GrigliaOmbrelloni.Children.Clear();
                         int xx = 0;
@@ -153,6 +162,14 @@ namespace CumejaBeach.xaml
             var pos = new PosForm();
             pos.setTitolo(titolo);
             await Navigation.PushAsync(pos);
+        }
+
+        public async void chiamaCumejaRing()
+        {
+
+            var ring = new CumejaRingList();
+
+            await Navigation.PushAsync(ring);
         }
 
         class EventoTap : EventoTapOmbrellone
