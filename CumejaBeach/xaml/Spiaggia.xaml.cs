@@ -8,6 +8,7 @@ using System.Threading;
 using Newtonsoft.Json;
 using CumejaBeach.XAML.pos;
 using CumejaBeach.XAML.ring;
+using InceptiumAPI.com.inceptium.httpclient;
 
 namespace CumejaBeach.xaml
 {
@@ -34,8 +35,10 @@ namespace CumejaBeach.xaml
             startDatePicker.Unfocused += StartDatePicker_Unfocused;
 
             //btInfo_ok.Clicked+=BtInfo_Ok_Clicked;
-
+            LeggiRingAsync();
         }
+
+
 
         void BtInfo_Ok_Clicked(object sender, EventArgs e)
         {
@@ -75,6 +78,26 @@ namespace CumejaBeach.xaml
 
         }
 
+        public async void LeggiRingAsync()
+        {
+            INHTTPClientConfig inCliConfig = new INHTTPClientConfig();
+            inCliConfig.serverIP = "192.168.15.55";
+            inCliConfig.serverPort = "8888";
+
+            INHTTPClientCredential inCredential = new INHTTPClientCredential();
+            inCredential.inceptiumID = "FC001";
+            inCredential.login = "admin";
+            inCredential.password = "gibuti";
+
+            inCliConfig.inceptiumCredential = inCredential;
+
+            INHTTPClient inClient = new INHTTPClient(inCliConfig, "");
+            var sessione = await inClient.getNewWebSessionAsync();
+            Console.WriteLine("DAll'applicazione -> " + sessione.ToString());
+
+
+
+        }
 
         public async void CaricaListaOmbrelloni()
         {
@@ -124,7 +147,7 @@ namespace CumejaBeach.xaml
                                 {
                                     xx++; ;
                                 }
-                                if (xx == 21)
+                                if (xx == 20)
                                 {
                                     yy++;
                                     xx = 0;
@@ -186,7 +209,9 @@ namespace CumejaBeach.xaml
                     {
                         Spiaggia.me.DisplayAlert("Attenzione !!!", "Questo Posto non è occupato", "OK");
                     }
-                }else{
+                }
+                else
+                {
                     Spiaggia.me.DisplayAlert("Info Ombrellone " + item.Codice, item.Info, "OK");
                 }
 

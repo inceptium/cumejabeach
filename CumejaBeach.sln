@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CumejaBeach.iOS", "CumejaBe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CumejaBeach", "CumejaBeach\CumejaBeach.csproj", "{B73E3E95-9AD0-4178-B06C-1B302D014BAC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InceptiumAPI", "..\InceptiumAPI\InceptiumAPI.csproj", "{053AC12C-7195-4EBF-867F-58B3A376A764}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,22 @@ Global
 		{B73E3E95-9AD0-4178-B06C-1B302D014BAC}.Ad-Hoc|iPhone.Build.0 = Debug|Any CPU
 		{B73E3E95-9AD0-4178-B06C-1B302D014BAC}.AppStore|iPhone.ActiveCfg = Debug|Any CPU
 		{B73E3E95-9AD0-4178-B06C-1B302D014BAC}.AppStore|iPhone.Build.0 = Debug|Any CPU
+		{053AC12C-7195-4EBF-867F-58B3A376A764}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{053AC12C-7195-4EBF-867F-58B3A376A764}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{053AC12C-7195-4EBF-867F-58B3A376A764}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{053AC12C-7195-4EBF-867F-58B3A376A764}.Release|Any CPU.Build.0 = Release|Any CPU
+		{053AC12C-7195-4EBF-867F-58B3A376A764}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{053AC12C-7195-4EBF-867F-58B3A376A764}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{053AC12C-7195-4EBF-867F-58B3A376A764}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{053AC12C-7195-4EBF-867F-58B3A376A764}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{053AC12C-7195-4EBF-867F-58B3A376A764}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{053AC12C-7195-4EBF-867F-58B3A376A764}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{053AC12C-7195-4EBF-867F-58B3A376A764}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{053AC12C-7195-4EBF-867F-58B3A376A764}.Release|iPhone.Build.0 = Release|Any CPU
+		{053AC12C-7195-4EBF-867F-58B3A376A764}.Ad-Hoc|iPhone.ActiveCfg = Release|Any CPU
+		{053AC12C-7195-4EBF-867F-58B3A376A764}.Ad-Hoc|iPhone.Build.0 = Release|Any CPU
+		{053AC12C-7195-4EBF-867F-58B3A376A764}.AppStore|iPhone.ActiveCfg = Release|Any CPU
+		{053AC12C-7195-4EBF-867F-58B3A376A764}.AppStore|iPhone.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0

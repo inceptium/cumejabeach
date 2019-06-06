@@ -23,6 +23,11 @@ namespace ZoomableApp.Droid.Renderers
         private float mScale = 1f;
         private ScaleGestureDetector mScaleDetector;
 
+        public ZoomScrollViewRenderer(Context con)
+        {
+           
+        }
+
         protected override void OnElementChanged(VisualElementChangedEventArgs e)
         {
 
