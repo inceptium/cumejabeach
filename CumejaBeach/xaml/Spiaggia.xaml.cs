@@ -15,9 +15,10 @@ namespace CumejaBeach.xaml
     public partial class Spiaggia : ContentPage
     {
         CancellationTokenSource tokenSource;
-        String currentDate = "";
+        string currentDate = "";
         static Spiaggia me;
         EventoTap eventotap;
+        volatile bool caricoOmbrelloniInCorso = false;
 
         public Spiaggia()
         {
@@ -35,7 +36,7 @@ namespace CumejaBeach.xaml
             startDatePicker.Unfocused += StartDatePicker_Unfocused;
 
             //btInfo_ok.Clicked+=BtInfo_Ok_Clicked;
-            LeggiRingAsync();
+            //App.getInstance().LeggiRingAsync(true);
         }
 
 
@@ -78,35 +79,23 @@ namespace CumejaBeach.xaml
 
         }
 
-        public async void LeggiRingAsync()
-        {
-            INHTTPClientConfig inCliConfig = new INHTTPClientConfig();
-            inCliConfig.serverIP = "192.168.15.55";
-            inCliConfig.serverPort = "8888";
-
-            INHTTPClientCredential inCredential = new INHTTPClientCredential();
-            inCredential.inceptiumID = "FC001";
-            inCredential.login = "admin";
-            inCredential.password = "gibuti";
-
-            inCliConfig.inceptiumCredential = inCredential;
-
-            INHTTPClient inClient = new INHTTPClient(inCliConfig, "");
-            var sessione = await inClient.getNewWebSessionAsync();
-            Console.WriteLine("DAll'applicazione -> " + sessione.ToString());
-
-
-
-        }
+        
 
         public async void CaricaListaOmbrelloni()
         {
+            if (caricoOmbrelloniInCorso)
+            {
+                return;
+
+            }
+
+            caricoOmbrelloniInCorso = true;
             if (CrossConnectivity.Current.IsConnected)
             {
                 Indicator1.IsRunning = true;
                 lb_monitor.Text = "accesso al server......";
                 var request = new HttpRequestMessage();
-                request.RequestUri = new Uri("http://192.168.101.112/wspa/getpuntiaddebito.aspx?data=" + currentDate);
+                request.RequestUri = new Uri("http://" + App.GetPreferencecs().Result.ServerDNRIP + "/wspa/getpuntiaddebito.aspx?data=" + currentDate);
                 request.Method = HttpMethod.Get;
                 request.Headers.Add("Accept", "application/json");
 
@@ -177,6 +166,7 @@ namespace CumejaBeach.xaml
                 await DisplayAlert("messaggio", "Connettività assente", "OK");
             }
             Indicator1.IsRunning = false;
+            caricoOmbrelloniInCorso = false;
 
         }
 

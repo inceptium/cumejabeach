@@ -27,6 +27,7 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -101,6 +102,7 @@
     <None Include="Resources\ombrellone%402x.png" />
     <Compile Include="ZoomScrollViewRenderer.cs" />
     <Compile Include="IOSLongPressedEffect.cs" />
+    <Compile Include="iOSLongRunningTaskExample.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -165,6 +167,10 @@
     <ProjectReference Include="..\CumejaBeach\CumejaBeach.csproj">
       <Project>{B73E3E95-9AD0-4178-B06C-1B302D014BAC}</Project>
       <Name>CumejaBeach</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\InceptiumAPI\InceptiumAPI.csproj">
+      <Project>{053AC12C-7195-4EBF-867F-58B3A376A764}</Project>
+      <Name>InceptiumAPI</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

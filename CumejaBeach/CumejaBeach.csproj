@@ -8,10 +8,16 @@
     <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
     <PackageReference Include="Xamarin.Forms" Version="4.0.0.482894" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.5.231" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CS\" />
     <Folder Include="XAML\ring\" />
+    <Folder Include="utility\" />
+    <Folder Include="utility\pref\" />
+    <Folder Include="utility\appstorage\" />
+    <Folder Include="utility\http\" />
+    <Folder Include="utility\controller\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="xaml\Impostazioni.xaml %28copia%29.cs" />

@@ -8,6 +8,9 @@ namespace CumejaBeach.xaml
     {
         public MainPage()
         {
+
+             
+
             InitializeComponent();
 
             masterPage.listView.ItemSelected += OnItemSelected;

@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using Xamarin.Forms;
 
 namespace CumejaBeach.iOS
 {
@@ -24,8 +25,24 @@ namespace CumejaBeach.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
+            UIApplication.SharedApplication.SetMinimumBackgroundFetchInterval(UIApplication.BackgroundFetchIntervalMinimum);
+
+            MessagingCenter.Subscribe<StartLongRunningTaskMessage>(this, "StartLongRunningTaskMessage", async message =>
+            {
+                var longRunningTaskExample = new iOSLongRunningTaskExample();
+                await longRunningTaskExample.Start();
+            });
 
             return base.FinishedLaunching(app, options);
+        }
+
+        public override void PerformFetch(UIApplication application, Action<UIBackgroundFetchResult> completionHandler)
+        {
+            // Check for new data, and display it
+
+
+            // Inform system of fetch results
+            completionHandler(UIBackgroundFetchResult.NewData);
         }
     }
 }
