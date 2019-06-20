@@ -29,7 +29,7 @@ namespace CumejaBeach.utility.controller
         public async Task LeggiRingAsync(CancellationToken token)
         {
 
-
+            Console.WriteLine("Inizio tasssssssssskkkkkkkkkk");
 
             await Task.Run(async () =>
             {

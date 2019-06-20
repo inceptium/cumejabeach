@@ -37,9 +37,10 @@ namespace CumejaBeach.xaml
 
             //btInfo_ok.Clicked+=BtInfo_Ok_Clicked;
             //App.getInstance().LeggiRingAsync(true);
+
         }
 
-
+        
 
         void BtInfo_Ok_Clicked(object sender, EventArgs e)
         {
@@ -61,7 +62,7 @@ namespace CumejaBeach.xaml
         }
 
 
-
+        
 
 
         public void Handle_Clicked(object sender, System.EventArgs e)
@@ -79,6 +80,7 @@ namespace CumejaBeach.xaml
 
         }
 
+        
         
 
         public async void CaricaListaOmbrelloni()

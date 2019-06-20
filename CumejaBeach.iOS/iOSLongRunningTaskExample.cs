@@ -16,7 +16,7 @@ namespace CumejaBeach.iOS
         {
             _cts = new CancellationTokenSource();
 
-            _taskId = UIApplication.SharedApplication.BeginBackgroundTask("CumejaBeach", OnExpiration);
+            _taskId = UIApplication.SharedApplication.BeginBackgroundTask("CumejaRing", OnExpiration);
 
             try
             {

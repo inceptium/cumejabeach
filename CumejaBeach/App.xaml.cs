@@ -114,9 +114,8 @@ namespace CumejaBeach
             //}
             inClient = new INHTTPClient(inCliConfig, "");
 
-
-            var message = new StartLongRunningTaskMessage();
-            MessagingCenter.Send(message, "StartLongRunningTaskMessage");
+            Console.WriteLine("mando il messaggio da APP");
+            
 
 
         }
@@ -128,6 +127,9 @@ namespace CumejaBeach
         protected override void OnStart()
         {
             // Handle when your app starts
+            var message = new StartLongRunningTaskMessage();
+            MessagingCenter.Send(message, "StartLongRunningTaskMessage");
+            Console.WriteLine("Applicazione Avviata!!!!!");
         }
 
         protected override void OnSleep()

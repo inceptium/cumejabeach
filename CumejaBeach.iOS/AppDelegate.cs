@@ -25,24 +25,25 @@ namespace CumejaBeach.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
-            UIApplication.SharedApplication.SetMinimumBackgroundFetchInterval(UIApplication.BackgroundFetchIntervalMinimum);
+            //UIApplication.SharedApplication.SetMinimumBackgroundFetchInterval(UIApplication.BackgroundFetchIntervalNever);
 
             MessagingCenter.Subscribe<StartLongRunningTaskMessage>(this, "StartLongRunningTaskMessage", async message =>
             {
-                var longRunningTaskExample = new iOSLongRunningTaskExample();
+                Console.WriteLine("MEssaggio ricevuttoooooooooo");
+                iOSLongRunningTaskExample longRunningTaskExample = new iOSLongRunningTaskExample();
                 await longRunningTaskExample.Start();
             });
 
             return base.FinishedLaunching(app, options);
         }
 
-        public override void PerformFetch(UIApplication application, Action<UIBackgroundFetchResult> completionHandler)
-        {
-            // Check for new data, and display it
+        //public override void PerformFetch(UIApplication application, Action<UIBackgroundFetchResult> completionHandler)
+        //{
+        //    // Check for new data, and display it
 
 
-            // Inform system of fetch results
-            completionHandler(UIBackgroundFetchResult.NewData);
-        }
+        //    // Inform system of fetch results
+        //    completionHandler(UIBackgroundFetchResult.NewData);
+        //}
     }
 }
