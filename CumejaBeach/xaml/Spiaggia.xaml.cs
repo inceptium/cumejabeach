@@ -26,6 +26,7 @@ namespace CumejaBeach.xaml
             currentDate = System.DateTime.Now.Day.ToString() + "/" + System.DateTime.Now.Month.ToString() + "/" + System.DateTime.Now.Year.ToString();
             InitializeComponent();
             Indicator1.IsRunning = true;
+            
             //disegnaOmbrelloni();
             CaricaListaOmbrelloni();
 
@@ -97,7 +98,7 @@ namespace CumejaBeach.xaml
                 Indicator1.IsRunning = true;
                 lb_monitor.Text = "accesso al server......";
                 var request = new HttpRequestMessage();
-                request.RequestUri = new Uri("http://" + App.GetPreferencecs().Result.ServerDNRIP + "/wspa/getpuntiaddebito.aspx?data=" + currentDate);
+                request.RequestUri = new Uri("http://" + App.connectionPref.ServerDNRIP + "/wspa/getpuntiaddebito.aspx?data=" + currentDate);
                 request.Method = HttpMethod.Get;
                 request.Headers.Add("Accept", "application/json");
 

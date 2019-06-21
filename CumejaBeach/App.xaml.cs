@@ -17,9 +17,10 @@ namespace CumejaBeach
 {
     public partial class App : Application
     {
+        
         static PreferenzeDB databasePref;
-        static ConnectionPref connectionPref;
-        static App me;
+        public static ConnectionPref connectionPref;
+        static  App me;
         static INHttpClientConfigEvent inhttpEvent;
         static INHTTPClientConfig inCliConfig;
         static INHTTPClientCredential inCredential;
@@ -33,7 +34,11 @@ namespace CumejaBeach
             me = this;
             InitializeComponent();
 
-            Task.Run(async () => { await GetPreferencecs(); }).Wait();
+            Task.Run(async () => { await LoadPreferences(); }).Wait();
+            inCliConfig = new INHTTPClientConfig();
+            inCredential = new INHTTPClientCredential();
+            inClient = new INHTTPClient(inCliConfig, "");
+
             ConfigureINHTTP();
 
             MainPage = new CumejaBeach.xaml.MainPage();
@@ -43,7 +48,21 @@ namespace CumejaBeach
 
         }
 
-        public async static Task<ConnectionPref> GetPreferencecs()
+        public async static void SavePreferences()
+        {
+            string cnntojson = JsonConvert.SerializeObject(connectionPref);
+            Console.WriteLine("write: -> " + cnntojson);
+            ItemPref item= await DataBasePref.GetItemByKeyAsync("ConnectionPref");
+            item.key = "ConnectionPref";
+            item.value = cnntojson;
+            //{
+            //    key = "ConnectionPref",
+            //    value = cnntojson
+            //};
+            await DataBasePref.SaveItemAsync(item);
+        }
+
+        public async static Task<ConnectionPref> LoadPreferences()
         {
 
             if (connectionPref == null)
@@ -64,7 +83,7 @@ namespace CumejaBeach
                         key = "ConnectionPref",
                         value = cnntojson
                     };
-                    await DataBasePref.SaveItemAsync(item);
+                    await DataBasePref.AddItemAsync(item);
 
                 }
 
@@ -93,16 +112,16 @@ namespace CumejaBeach
             }
         }
 
-        private void ConfigureINHTTP()
+        public void ConfigureINHTTP()
         {
-            inCliConfig = new INHTTPClientConfig();
-            inCliConfig.serverIP = App.GetPreferencecs().Result.ServerInceptiumIP;
-            inCliConfig.serverPort = App.GetPreferencecs().Result.InceptiumPort;
+            
+            inCliConfig.serverIP = connectionPref.ServerInceptiumIP;
+            inCliConfig.serverPort = connectionPref.InceptiumPort;
 
-            inCredential = new INHTTPClientCredential();
-            inCredential.inceptiumID = "FC001";
-            inCredential.login = "admin";
-            inCredential.password = "gibuti";
+            
+            inCredential.inceptiumID = connectionPref.InceptiumID;
+            inCredential.login = connectionPref.InceptiumUser;
+            inCredential.password = connectionPref.InceptiumPassword;
 
             inCliConfig.inceptiumCredential = inCredential;
 
@@ -112,9 +131,9 @@ namespace CumejaBeach
             //    inCliConfig.inevent = inhttpEvent;
 
             //}
-            inClient = new INHTTPClient(inCliConfig, "");
+            
 
-            Console.WriteLine("mando il messaggio da APP");
+            
             
 
 

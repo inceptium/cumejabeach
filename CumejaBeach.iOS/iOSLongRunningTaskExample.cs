@@ -38,7 +38,7 @@ namespace CumejaBeach.iOS
                     //);
                 }
             }
-
+            Console.WriteLine("E' terminato il long run!!!!!");
             UIApplication.SharedApplication.EndBackgroundTask(_taskId);
         }
 

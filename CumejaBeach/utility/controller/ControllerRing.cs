@@ -18,6 +18,7 @@ namespace CumejaBeach.utility.controller
         static volatile bool leggiRingRun = false;
         private INHTTPClient inClient;
         private bool newsession = true;
+        public volatile bool close;
 
         public ControllerRing(INHTTPClient client)
         {
@@ -33,14 +34,19 @@ namespace CumejaBeach.utility.controller
 
             await Task.Run(async () =>
             {
-                for (long i = 0; i < long.MaxValue; i++)
+                leggiRingRun = true;
+                while(!close)
                 {
                     token.ThrowIfCancellationRequested();
+                    if (close)
+                        break;
+
                     try
                     {
 
                         if (!inClient.connected)
                         {
+                            App.getInstance().ConfigureINHTTP();
                             var sessione = await inClient.getNewWebSessionAsync();
                             Console.WriteLine("Leggo -> Ring: new session");
                             newsession = false;
@@ -70,11 +76,6 @@ namespace CumejaBeach.utility.controller
 
                     await Task.Delay(5000);
 
-
-
-
-
-
                     //var message = new TickedMessage
                     //{
                     //    Message = i.ToString()
@@ -84,6 +85,8 @@ namespace CumejaBeach.utility.controller
                     //    MessagingCenter.Send<TickedMessage>(message, "TickedMessage");
                     //});
                 }
+                Console.WriteLine("Controller Ring Fermato");
+                leggiRingRun = false;
             }, token);
 
 

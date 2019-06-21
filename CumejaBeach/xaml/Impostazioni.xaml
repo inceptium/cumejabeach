@@ -1,10 +1,90 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CumejaBeach.xaml.Impostazioni" Title="Impostazioni" Padding="20,20,20,20">
-    <StackLayout>
-        <Label Text="Pagina Impostazioni" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
-        <Button x:Name="bt_beachBar" Text="Chiama Beach Bar" VerticalOptions="Center"/>
-
-        <Button x:Name="Bottone" Text="Torna indietro" VerticalOptions="Center"/>
-
+    <StackLayout Padding="10,10,10,10" Margin="0,0,0,0" Spacing="0">
+        <Frame HasShadow="false" BorderColor="Silver" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+            <Label x:Name="lb_titolo" Text="Impostazioni Applicazione" FontSize="20" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+        </Frame>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <Frame HasShadow="false" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="0">
+                    <Frame WidthRequest="500" HasShadow="false" BorderColor="Silver" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
+                        <StackLayout>
+                            <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="Center">
+                                <StackLayout Padding="2,2,2,2">
+                                    <Frame HasShadow="false" BorderColor="Silver" HorizontalOptions="Center" VerticalOptions="Center">
+                                        <Grid Padding="2,2,2,2" RowSpacing="5">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="200" />
+                                                <ColumnDefinition Width="250" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="0" TextColor="Silver" Text="Server Inceptium IP" HorizontalTextAlignment="Start" VerticalOptions="Center" />
+                                            <Entry Grid.Column="1" x:Name="en_IN_ipserver" TextColor="Black" Text="192.168.10.150" FontSize="Small" />
+                                        </Grid>
+                                    </Frame>
+                                     <Frame HasShadow="false" BorderColor="Silver" HorizontalOptions="Center" VerticalOptions="Center">
+                                        <Grid Padding="2,2,2,2" RowSpacing="5">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="200" />
+                                                <ColumnDefinition Width="250" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="0" TextColor="Silver" Text="Server Inceptium Port" HorizontalTextAlignment="Start" VerticalOptions="Center" />
+                                            <Entry Grid.Column="1" x:Name="en_IN_server_port" TextColor="Black" Text="80" FontSize="Small" />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame HasShadow="false" BorderColor="Silver" HorizontalOptions="Center" VerticalOptions="Center">
+                                        <Grid Padding="2,2,2,2" RowSpacing="5">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="200" />
+                                                <ColumnDefinition Width="250" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="0" TextColor="Silver" Text="Inceptium ID" HorizontalTextAlignment="Start" VerticalOptions="Center" />
+                                            <Entry Grid.Column="1" x:Name="en_IN_ID" TextColor="Black" Text="FC001" FontSize="Small" />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame HasShadow="false" BorderColor="Silver" HorizontalOptions="Center" VerticalOptions="Center">
+                                        <Grid Padding="2,2,2,2" RowSpacing="5">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="200" />
+                                                <ColumnDefinition Width="250" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="0" TextColor="Silver" Text="User" HorizontalTextAlignment="Start" VerticalOptions="Center" />
+                                            <Entry Grid.Column="1" x:Name="en_IN_User" TextColor="Black" Text="admin" FontSize="Small" />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame HasShadow="false" BorderColor="Silver" HorizontalOptions="Center" VerticalOptions="Center">
+                                        <Grid Padding="2,2,2,2" RowSpacing="5">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="200" />
+                                                <ColumnDefinition Width="250" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="0" TextColor="Silver" Text="Password" HorizontalTextAlignment="Start" VerticalOptions="Center" />
+                                            <Entry Grid.Column="1" x:Name="en_IN_password" TextColor="Black" Text="gibuti" FontSize="Small" />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame HasShadow="false" BorderColor="Silver" HorizontalOptions="Center" VerticalOptions="Center">
+                                        <Grid Padding="2,2,2,2" RowSpacing="5">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="200" />
+                                                <ColumnDefinition Width="250" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="0" TextColor="Silver" Text="Server DNR IP" HorizontalTextAlignment="Start" VerticalOptions="Center" />
+                                            <Entry Grid.Column="1" x:Name="en_DNR_ipserver" TextColor="Black" Text="192.168.101.112" FontSize="Small" />
+                                        </Grid>
+                                    </Frame>
+                                </StackLayout>
+                            </ScrollView>
+                        </StackLayout>
+                    </Frame>
+                    <StackLayout WidthRequest="20" />
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+        <StackLayout VerticalOptions="End" HorizontalOptions="FillAndExpand">
+            <Frame HasShadow="false" BorderColor="Silver" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="10" >
+                    <Button x:Name="bt_salva" BorderWidth="2" BorderColor="#E8E8E8" Text="Salva impostazioni" HorizontalOptions="Center" WidthRequest="200" />
+                </StackLayout>
+            </Frame>
+        </StackLayout>
     </StackLayout>
 </ContentPage>

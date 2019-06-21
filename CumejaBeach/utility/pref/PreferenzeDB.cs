@@ -38,14 +38,17 @@ namespace CumejaBeach.utility.pref
 
         public Task<int> SaveItemAsync(ItemPref item)
         {
-            if (item.ID != 0)
-            {
+
+             
                 return database.UpdateAsync(item);
-            }
-            else
-            {
+          
+        }
+
+        public Task<int> AddItemAsync(ItemPref item)
+        {
+      
                 return database.InsertAsync(item);
-            }
+      
         }
 
         public Task<int> DeleteItemAsync(ItemPref item)
