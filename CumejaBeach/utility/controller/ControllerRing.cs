@@ -26,15 +26,16 @@ namespace CumejaBeach.utility.controller
 
         }
 
-
         public async Task LeggiRingAsync(CancellationToken token)
         {
 
             Console.WriteLine("Inizio tasssssssssskkkkkkkkkk");
-
+            string incTaskRest = "";
+            
             await Task.Run(async () =>
             {
                 leggiRingRun = true;
+                
                 while(!close)
                 {
                     token.ThrowIfCancellationRequested();
@@ -50,10 +51,11 @@ namespace CumejaBeach.utility.controller
                             var sessione = await inClient.getNewWebSessionAsync();
                             Console.WriteLine("Leggo -> Ring: new session");
                             newsession = false;
+                            incTaskRest = await inClient.SendCommand("load_app?classapp=com.cumejaring.AppCumejaRing::", true, false);
                         }
 
-                        var app = await inClient.SendCommand("load_app?classapp=com.cumejaring.AppCumejaRing::", false, false);
-                        if (app != null)
+                        
+                        if (incTaskRest.StartsWith("TASK"))
                         {
                             var rest = await inClient.SendCommand("callappcommand?command=executemethod::class=com.cumejaring.datamodel.beach.crPostoRicreativo::method=ring_list::", false, false);
                             if (rest != null)
