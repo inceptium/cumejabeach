@@ -25,8 +25,10 @@ namespace CumejaBeach
         static INHTTPClientConfig inCliConfig;
         static INHTTPClientCredential inCredential;
         public INHTTPClient inClient;
-        static ControllerRing controllerRing;
-       
+        public static ControllerRing controllerRing;
+        public Task lastControllerRingTask;
+        public System.Threading.CancellationTokenSource lastCancellationTokenRing;
+
 
 
         public App()
@@ -40,6 +42,7 @@ namespace CumejaBeach
             inClient = new INHTTPClient(inCliConfig, "");
 
             ConfigureINHTTP();
+            
 
             MainPage = new CumejaBeach.xaml.MainPage();
 
@@ -146,19 +149,30 @@ namespace CumejaBeach
         protected override void OnStart()
         {
             // Handle when your app starts
-            var message = new StartLongRunningTaskMessage();
-            MessagingCenter.Send(message, "StartLongRunningTaskMessage");
+            //var message = new StartLongRunningTaskMessage();
+            //MessagingCenter.Send(message, "StartLongRunningTaskMessage");
+            controllerRing = new ControllerRing(inClient);
+            lastCancellationTokenRing = new System.Threading.CancellationTokenSource();
+            lastControllerRingTask = controllerRing.LeggiRingAsync(lastCancellationTokenRing.Token);
             Console.WriteLine("Applicazione Avviata!!!!!");
         }
 
         protected override void OnSleep()
         {
             // Handle when your app sleeps
+            lastCancellationTokenRing.Dispose();
+            controllerRing.close = true;
+
+            Console.WriteLine("Applicazione On Sleep");
         }
 
         protected override void OnResume()
         {
             // Handle when your app resumes
+            lastCancellationTokenRing = new System.Threading.CancellationTokenSource();
+            controllerRing = new ControllerRing(inClient);
+            lastControllerRingTask = controllerRing.LeggiRingAsync(lastCancellationTokenRing.Token);
+            Console.WriteLine("Applicazione On resume");
 
         }
     }

@@ -68,9 +68,11 @@ namespace CumejaBeach.xaml
 
         public void Handle_Clicked(object sender, System.EventArgs e)
         {
+            
 
             currentDate = startDatePicker.Date.Day.ToString() + "/" + startDatePicker.Date.Month.ToString() + "/" + startDatePicker.Date.Year.ToString();
             CaricaListaOmbrelloni();
+            
 
         }
 

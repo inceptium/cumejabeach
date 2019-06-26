@@ -20,14 +20,9 @@ namespace CumejaBeach.xaml
             en_DNR_ipserver.Text = App.connectionPref.ServerDNRIP;
         }
 
-
-
-
-
         async void Bottone_Clicked(object sender, EventArgs e)
         {
 
-                       
             App.connectionPref.ServerInceptiumIP = en_IN_ipserver.Text;
             App.connectionPref.InceptiumPort = en_IN_server_port.Text;
             App.connectionPref.InceptiumID = en_IN_ID.Text;
@@ -35,7 +30,7 @@ namespace CumejaBeach.xaml
             App.connectionPref.InceptiumPassword = en_IN_password.Text;
             App.connectionPref.ServerDNRIP = en_DNR_ipserver.Text;
             App.SavePreferences();
-            await DisplayAlert("messaggio", "Impostazioni Salvate", "OK");
+            await DisplayAlert("Cumeja Beach", "Impostazioni Salvate", "OK");
 
         }
 
