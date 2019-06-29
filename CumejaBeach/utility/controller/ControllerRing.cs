@@ -53,6 +53,8 @@ namespace CumejaBeach.utility.controller
 
         }
 
+        
+
         public async Task LeggiRingAsync(CancellationToken token)
         {
             if (!leggiRingRun)
@@ -96,14 +98,25 @@ namespace CumejaBeach.utility.controller
                                     if (rest != null)
                                     {
                                         lastread = rest;
-                                        Spiaggia.me.bt_ring.BackgroundColor = Color.Yellow;
 
-                                        Console.WriteLine("Leggo -> Ring");
+                                        if (lastread.Equals("[]"))
+                                        {
+                                            Spiaggia.me.AttivaBottoneRing(false);
+                                        }
+                                        else
+                                        {
+                                            Spiaggia.me.AttivaBottoneRing(true);
+                                        }
+    
+                                        
+                                       
+
+                                        Console.WriteLine("Leggo -> Ring - "+lastread);
                                     }
                                     else
                                     {
                                         lastread = "";
-                                        Spiaggia.me.bt_ring.BackgroundColor = Color.White;
+                                        Spiaggia.me.AttivaBottoneRing(false);
                                     }
                                 }
 
@@ -115,7 +128,7 @@ namespace CumejaBeach.utility.controller
                                     lastread = "";
                                     Console.WriteLine("inceptium app Cumeja Ring not load !!!!");
                                 }
-                                    Spiaggia.me.bt_ring.BackgroundColor = Color.White;
+                                Spiaggia.me.AttivaBottoneRing(false);
                             }
 
 
@@ -123,6 +136,7 @@ namespace CumejaBeach.utility.controller
                         catch
                         {
                             Console.WriteLine("connessione server inceptium assente");
+                            Spiaggia.me.AttivaBottoneRing(false);
                         }
 
                         await Task.Delay(5000, token);

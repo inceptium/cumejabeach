@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using CumejaBeach.XAML.pos;
 using CumejaBeach.XAML.ring;
 using InceptiumAPI.com.inceptium.httpclient;
+using System.Threading.Tasks;
 
 namespace CumejaBeach.xaml
 {
@@ -27,7 +28,7 @@ namespace CumejaBeach.xaml
             currentDate = System.DateTime.Now.Day.ToString() + "/" + System.DateTime.Now.Month.ToString() + "/" + System.DateTime.Now.Year.ToString();
             InitializeComponent();
             Indicator1.IsRunning = true;
-            
+
             //disegnaOmbrelloni();
             CaricaListaOmbrelloni();
 
@@ -38,12 +39,32 @@ namespace CumejaBeach.xaml
             startDatePicker.Unfocused += StartDatePicker_Unfocused;
             bt_ring = bt_lista_ring;
 
+
             //btInfo_ok.Clicked+=BtInfo_Ok_Clicked;
             //App.getInstance().LeggiRingAsync(true);
 
         }
 
-        
+        public void AttivaBottoneRing(bool attiva)
+        {
+
+            Device.BeginInvokeOnMainThread(() =>
+                            {
+                                if (attiva)
+                                {
+                                    bt_lista_ring.BackgroundColor = Color.Yellow;
+
+                                    Console.WriteLine("Attivato");
+                                }
+                                else
+                                {
+                                    bt_lista_ring.BackgroundColor = Color.White;
+                                }
+                            });
+
+
+
+        }
 
         void BtInfo_Ok_Clicked(object sender, EventArgs e)
         {
@@ -65,16 +86,16 @@ namespace CumejaBeach.xaml
         }
 
 
-        
+
 
 
         public void Handle_Clicked(object sender, System.EventArgs e)
         {
-            
+
 
             currentDate = startDatePicker.Date.Day.ToString() + "/" + startDatePicker.Date.Month.ToString() + "/" + startDatePicker.Date.Year.ToString();
             CaricaListaOmbrelloni();
-            
+
 
         }
 
@@ -85,8 +106,8 @@ namespace CumejaBeach.xaml
 
         }
 
-        
-        
+
+
 
         public async void CaricaListaOmbrelloni()
         {
