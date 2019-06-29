@@ -12,6 +12,7 @@ namespace CumejaBeach.utility.controller
         public long time_created { get; set; }
         public long time_lastupdate { get; set; }
         public string type { get; set; }
+        public string NameLocation { get; set; }
 
 
     //"code_location": "O16",

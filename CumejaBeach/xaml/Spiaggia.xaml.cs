@@ -16,9 +16,10 @@ namespace CumejaBeach.xaml
     {
         CancellationTokenSource tokenSource;
         string currentDate = "";
-        static Spiaggia me;
+        public static Spiaggia me;
         EventoTap eventotap;
         volatile bool caricoOmbrelloniInCorso = false;
+        public Button bt_ring;
 
         public Spiaggia()
         {
@@ -35,6 +36,7 @@ namespace CumejaBeach.xaml
             eventotap = new EventoTap();
 
             startDatePicker.Unfocused += StartDatePicker_Unfocused;
+            bt_ring = bt_lista_ring;
 
             //btInfo_ok.Clicked+=BtInfo_Ok_Clicked;
             //App.getInstance().LeggiRingAsync(true);

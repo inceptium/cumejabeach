@@ -22,7 +22,7 @@ namespace CumejaBeach
         public static ConnectionPref connectionPref;
         static  App me;
         static INHttpClientConfigEvent inhttpEvent;
-        static INHTTPClientConfig inCliConfig;
+        public static INHTTPClientConfig inCliConfig;
         static INHTTPClientCredential inCredential;
         public INHTTPClient inClient;
         public static ControllerRing controllerRing;

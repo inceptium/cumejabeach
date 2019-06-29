@@ -11,6 +11,7 @@ using InceptiumAPI.com.inceptium.httpclient;
 using CumejaBeach.utility.http;
 using System.Threading;
 using System.Collections.Generic;
+using CumejaBeach.xaml;
 
 namespace CumejaBeach.utility.controller
 {
@@ -95,12 +96,14 @@ namespace CumejaBeach.utility.controller
                                     if (rest != null)
                                     {
                                         lastread = rest;
+                                        Spiaggia.me.bt_ring.BackgroundColor = Color.Yellow;
 
                                         Console.WriteLine("Leggo -> Ring");
                                     }
                                     else
                                     {
                                         lastread = "";
+                                        Spiaggia.me.bt_ring.BackgroundColor = Color.White;
                                     }
                                 }
 
@@ -112,6 +115,7 @@ namespace CumejaBeach.utility.controller
                                     lastread = "";
                                     Console.WriteLine("inceptium app Cumeja Ring not load !!!!");
                                 }
+                                    Spiaggia.me.bt_ring.BackgroundColor = Color.White;
                             }
 
 
