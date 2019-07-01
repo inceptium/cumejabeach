@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CumejaRing.MainMenu">
+    <ContentPage.Content>
+         <NavigationPage>
+            <x:Arguments>
+               
+            </x:Arguments>
+        </NavigationPage>
+        <StackLayout Padding="10">
+            <Frame HasShadow="false" BorderColor="Silver">
+            </Frame>
+            <Frame HasShadow="false" BorderColor="Silver" VerticalOptions="FillAndExpand">
+                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="150" />
+                                <RowDefinition Height="150" />
+                          
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                
+                            </Grid.ColumnDefinitions>
+                            <StackLayout x:Name="stack_chiama_cameriere" Grid.Row="0" Grid.Column="0" >
+                                <Label Text="Chiama Cameriere" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center" BackgroundColor="Silver" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                                
+                            </StackLayout>
+                            <StackLayout Grid.Row="0" Grid.Column="1">
+                                <BoxView BackgroundColor="Silver" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                </BoxView>
+                            </StackLayout>
+                            <StackLayout Grid.Row="1" Grid.Column="0">
+                                <BoxView BackgroundColor="Silver" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                </BoxView>
+                            </StackLayout>
+                            <StackLayout Grid.Row="1" Grid.Column="1">
+                                <BoxView BackgroundColor="Silver" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                </BoxView>
+                            </StackLayout>
+                        </Grid>
+                    </ScrollView>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
