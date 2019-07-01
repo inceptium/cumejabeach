@@ -16,6 +16,6 @@
     <PackageReference Include="Xamarin.Forms.InputKit" Version="3.0.11" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\InceptiumAPI\InceptiumAPI.csproj" />
+    <ProjectReference Include="..\..\..\InceptiumAPI\InceptiumAPI.csproj" />
   </ItemGroup>
 </Project>
