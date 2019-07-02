@@ -28,8 +28,8 @@ namespace CumejaRing
         void radio_button_clicked(object sender, System.EventArgs e)
         {
             CurrentLocationSelection=(sender as RadioButton).Text;
-            stack_NumeroPosto.IsVisible = true;
-            bt_chiama.IsVisible = true;
+            //stack_NumeroPosto.IsVisible = true;
+            bt_avanti.IsEnabled = true;
 
         }
     }
