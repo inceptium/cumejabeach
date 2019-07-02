@@ -10,7 +10,7 @@ namespace CumejaRing
         {
             InitializeComponent();
 
-            MainPage = new MainMenu();
+            MainPage = new MasterPage();
         }
 
         protected override void OnStart()

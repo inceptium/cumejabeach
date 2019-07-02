@@ -1,14 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CumejaRing.MainMenu">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CumejaRing.ServicesPage">
     <ContentPage.Content>
-         <NavigationPage>
-            <x:Arguments>
-               
-            </x:Arguments>
-        </NavigationPage>
         <StackLayout Padding="10">
-            <Frame HasShadow="false" BorderColor="Silver">
-            </Frame>
+            <Frame HasShadow="false" BorderColor="Silver"></Frame>
             <Frame HasShadow="false" BorderColor="Silver" VerticalOptions="FillAndExpand">
                 <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                     <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">

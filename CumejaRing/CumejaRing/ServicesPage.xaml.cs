@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace CumejaRing
 {
-    public partial class MainMenu : ContentPage
+    public partial class ServicesPage : ContentPage
     {
-        public MainMenu()
+        public ServicesPage()
         {
             InitializeComponent();
             var tapRecognizer = new TapGestureRecognizer();
@@ -18,7 +18,7 @@ namespace CumejaRing
         private async void TapRecognizer_TappedAsync(object sender, EventArgs e)
         {
             var page = new MainPage();
-           
+
             await Navigation.PushAsync(page);
         }
     }

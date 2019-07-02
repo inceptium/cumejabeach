@@ -1,58 +1,61 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="CumejaRing.MainPage" xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit">
-    <StackLayout Padding="25,40,25,25" VerticalOptions="Start">
+    <StackLayout Padding="25,0,25,25" VerticalOptions="FillAndExpand">
         <!-- Place new controls here -->
+         <StackLayout Padding="5" />
         <Label Text="Cumeja Beach" TextColor="Green" HorizontalOptions="Center" VerticalOptions="Start" />
         <StackLayout Padding="5" />
         <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BorderColor="Silver" HasShadow="false">
             <StackLayout HorizontalOptions="CenterAndExpand">
-                <Label HorizontalTextAlignment="Center" Text="Dove ti trovi?" FontSize="35" TextColor="Teal">
+                <Label HorizontalTextAlignment="Center" Text="Dove ti trovi?" FontSize="30" TextColor="Teal">
                     <Label.FontFamily>
                         <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="iOS" Value="MarkerFelt-Thin" />
+                            <On Platform="iOS" Value="Lobster-Regular" />
                             <On Platform="Android" Value="Lobster-Regular.ttf#Lobster-Regular" />
                         </OnPlatform>
                     </Label.FontFamily>
                 </Label>
-                <StackLayout Padding="10" />
-                <StackLayout HorizontalOptions="Center" Spacing="50" Padding="15,0,0,20">
-                    <input:RadioButtonGroupView x:Name="radio_button" >
-                        <StackLayout />
-                        <input:RadioButton Text="in spiaggia" TextColor="Teal" TextFontSize="25" Clicked="radio_button_clicked">
-                            <input:RadioButton.FontFamily>
-                                <OnPlatform x:TypeArguments="x:String">
-                                    <On Platform="iOS" Value="MarkerFelt-Thin" />
-                                    <On Platform="Android" Value="Lobster-Regular.ttf#Lobster-Regular" />
-                                </OnPlatform>
-                            </input:RadioButton.FontFamily>
-                        </input:RadioButton>
-                        <StackLayout />
-                        <input:RadioButton Text="ai divani" TextColor="Teal" TextFontSize="25" Clicked="radio_button_clicked" >
-                            <input:RadioButton.FontFamily>
-                                <OnPlatform x:TypeArguments="x:String">
-                                    <On Platform="iOS" Value="MarkerFelt-Thin" />
-                                    <On Platform="Android" Value="Lobster-Regular.ttf#Lobster-Regular" />
-                                </OnPlatform>
-                            </input:RadioButton.FontFamily>
-                        </input:RadioButton>
-                        <StackLayout />
-                        <input:RadioButton Text="ai tavoli" TextColor="Teal" Clicked="radio_button_clicked" TextFontSize="25">
-                            <input:RadioButton.FontFamily>
-                                <OnPlatform x:TypeArguments="x:String">
-                                    <On Platform="iOS" Value="MarkerFelt-Thin" />
-                                    <On Platform="Android" Value="Lobster-Regular.ttf#Lobster-Regular" />
-                                </OnPlatform>
-                            </input:RadioButton.FontFamily>
-                        </input:RadioButton>
-                        <StackLayout />
-                        <input:RadioButton Text="in piscina" TextColor="Teal" Clicked="radio_button_clicked" TextFontSize="25">
-                            <input:RadioButton.FontFamily>
-                                <OnPlatform x:TypeArguments="x:String">
-                                    <On Platform="iOS" Value="MarkerFelt-Thin" />
-                                    <On Platform="Android" Value="Lobster-Regular.ttf#Lobster-Regular" />
-                                </OnPlatform>
-                            </input:RadioButton.FontFamily>
-                        </input:RadioButton>
+            
+                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Center"  Padding="15,0,0,20">
+                    <input:RadioButtonGroupView x:Name="radio_button" VerticalOptions="FillAndExpand" >
+                        <Grid>
+                            
+                            <input:RadioButton Grid.Row="0" Text="in spiaggia" TextColor="Teal" TextFontSize="20" Clicked="radio_button_clicked">
+                                <input:RadioButton.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="iOS" Value="MarkerFelt-Thin" />
+                                        <On Platform="Android" Value="Lobster-Regular.ttf#Lobster-Regular" />
+                                    </OnPlatform>
+                                </input:RadioButton.FontFamily>
+                            </input:RadioButton>
+                            
+                            <input:RadioButton Grid.Row="1" Text="ai divani" TextColor="Teal" TextFontSize="20" Clicked="radio_button_clicked">
+                                <input:RadioButton.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="iOS" Value="MarkerFelt-Thin" />
+                                        <On Platform="Android" Value="Lobster-Regular.ttf#Lobster-Regular" />
+                                    </OnPlatform>
+                                </input:RadioButton.FontFamily>
+                            </input:RadioButton>
+                            
+                            <input:RadioButton Grid.Row="2" Text="ai tavoli" TextColor="Teal" Clicked="radio_button_clicked" TextFontSize="20">
+                                <input:RadioButton.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="iOS" Value="MarkerFelt-Thin" />
+                                        <On Platform="Android" Value="Lobster-Regular.ttf#Lobster-Regular" />
+                                    </OnPlatform>
+                                </input:RadioButton.FontFamily>
+                            </input:RadioButton>
+                           
+                            <input:RadioButton Grid.Row="3" Text="in piscina" TextColor="Teal" Clicked="radio_button_clicked" TextFontSize="20">
+                                <input:RadioButton.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="iOS" Value="MarkerFelt-Thin" />
+                                        <On Platform="Android" Value="Lobster-Regular.ttf#Lobster-Regular" />
+                                    </OnPlatform>
+                                </input:RadioButton.FontFamily>
+                            </input:RadioButton>
+                        </Grid>
                     </input:RadioButtonGroupView>
                 </StackLayout>
                 <StackLayout x:Name="stack_NumeroPosto" IsVisible="false">
