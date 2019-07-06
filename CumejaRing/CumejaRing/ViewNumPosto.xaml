@@ -2,28 +2,30 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CumejaRing.ViewNumPosto">
     <ContentView.Content>
         <StackLayout x:Name="stack_position_request" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <Label HorizontalTextAlignment="Center" Text="in quale posto?" FontSize="30" TextColor="Teal">
-                <Label.FontFamily>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="iOS" Value="Lobster-Regular" />
-                        <On Platform="Android" Value="Lobster-Regular.ttf#Lobster-Regular" />
-                    </OnPlatform>
-                </Label.FontFamily>
-            </Label>
-            <StackLayout Padding="10">
-                <BoxView BackgroundColor="Silver" HeightRequest="1" />
-            </StackLayout>
-            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="20,40,20,20">
-                <Entry x:Name="entry_posto" Keyboard="Numeric" HorizontalOptions="FillAndExpand" TextChanged="Handle_TextChanged" />
-            </StackLayout>
-            <StackLayout Padding="10">
-                <BoxView BackgroundColor="Silver" HeightRequest="1" />
-            </StackLayout>
-            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="End">
-                <Button x:Name="bt_chiama_cameriere" IsEnabled="false" HorizontalOptions="Center" WidthRequest="150" Text="Chiama Cameriere" BorderColor="Silver" BorderWidth="2" Clicked="Handle_Clicked" />
+            <StackLayout x:Name="blocco_domanda">
+                <Label HorizontalTextAlignment="Center" Text="in quale posto?" FontSize="30" TextColor="Teal">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS" Value="Lobster-Regular" />
+                            <On Platform="Android" Value="Lobster-Regular.ttf#Lobster-Regular" />
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+                <StackLayout Padding="10">
+                    <BoxView BackgroundColor="Silver" HeightRequest="1" />
+                </StackLayout>
+                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="20,40,20,20">
+                    <Entry x:Name="entry_posto" Keyboard="Numeric" HorizontalOptions="FillAndExpand" TextChanged="Handle_TextChanged" BackgroundColor="#f2fdff" />
+                </StackLayout>
+                <StackLayout Padding="30">
+                    <BoxView BackgroundColor="Silver" HeightRequest="1" />
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="End">
+                    <Button x:Name="bt_chiama_cameriere" IsEnabled="false" HorizontalOptions="Center" WidthRequest="150" Text="Chiama Cameriere" BorderColor="Silver" BorderWidth="2" Clicked="Handle_ClickedAsync" />
+                </StackLayout>
             </StackLayout>
             <ActivityIndicator x:Name="indicator" IsRunning="false" />
-            <StackLayout x:Name="stack_status_monitor" IsVisible="true" Padding="15" VerticalOptions="End">
+            <StackLayout x:Name="stack_status_monitor" IsVisible="false" Padding="15" VerticalOptions="End">
                 <Label x:Name="label_status" HorizontalTextAlignment="Center" Text="la sua richiesta è stata correttamente inviata!!! " FontSize="20" TextColor="Olive">
                     <Label.FontFamily>
                         <OnPlatform x:TypeArguments="x:String">

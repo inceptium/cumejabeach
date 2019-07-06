@@ -70,7 +70,7 @@ namespace CumejaBeach.XAML.ring
         {
             INHTTPClient client = new INHTTPClient(App.inCliConfig, App.getInstance().inClient.CurrentWebSession);
             CumejaRingList.me.indicator.IsRunning = true;
-            var rest =  await client.SendCommand("callappcommand?command=executemethod::class=com.cumejaring.datamodel.beach.crPostoRicreativo::method=ring_update::location=" + postoRicreativo.code_location + "::status=RING_READ::",true,false);
+            var rest =  await client.SendCommand("callappcommand?command=executemethod::class=com.cumejaring.datamodel.beach.crPostoRicreativo::method=ring_update::code_location=" + postoRicreativo.code_location + "::status=RING_READ::type="+postoRicreativo.type+"::",true,false);
             if (rest != null && rest.Equals("RING_UPDATE"))
             {
                 await CumejaRingList.me.DisplayAlert("Cumeja Beach", "Risposta Inviata !!!", "OK");

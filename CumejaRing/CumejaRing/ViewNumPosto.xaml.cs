@@ -1,20 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Xamarin.Forms;
+using InceptiumAPI.com.inceptium.httpclient;
 
 namespace CumejaRing
 {
     public partial class ViewNumPosto : ContentView
     {
+        INHTTPClient inClient;
         public string location { get; set; }
         public ViewNumPosto()
         {
             InitializeComponent();
+            inClient = App.getInstance().inClient;
+            
         }
 
-        void Handle_Clicked(object sender, System.EventArgs e)
+        public void focus()
         {
-            label_status.Text = "la sua richiesta è stata correttamente inviata!!! " + location;
+            entry_posto.Focus();
+        }
+        async void Handle_ClickedAsync(object sender, System.EventArgs e)
+        {
+
+            indicator.IsRunning = true;
+            await connettiAsync();
+            indicator.IsRunning = false;
             stack_status_monitor.IsVisible = true;
         }
 
@@ -30,5 +42,66 @@ namespace CumejaRing
 
             }
         }
+
+        public async Task connettiAsync()
+        {
+            string incTaskRest = "";
+            try
+            {
+
+                Console.WriteLine("Leggo -> : new session");
+
+                App.getInstance().ConfigureINHTTP();
+                var sessione = await inClient.getNewWebSessionAsync();
+
+
+                incTaskRest = await inClient.SendCommand("load_app?classapp=com.cumejaring.AppCumejaRing::", true, false);
+
+
+
+                if (incTaskRest.StartsWith("TASK"))
+                {
+                    var rest = await inClient.SendCommand("callappcommand?command=executemethod::class=com.cumejaring.datamodel.beach.crPostoRicreativo::method=ring::code_location=" + entry_posto.Text + "::ringfrom=device::type=" + location + "::", false, false);
+
+                    if (rest == "RING_OK")
+                    {
+                        label_status.Text = "la sua richiesta è stata correttamente inviata!!! " ;
+                        blocco_domanda.IsVisible = false;
+                    }
+                    else
+                    {
+                        label_status.Text = "Controlla il numero di posto !!! (" + location+")";
+                    }
+
+
+                }
+                else
+                {
+                    label_status.Text = "Applicazione non disponibile per il momento";
+                }
+
+
+            }
+            catch
+            {
+                label_status.Text = "Ci sono probemi di connessione !!!" ;
+
+            }
+
+
+
+            //var message = new TickedMessage
+            //{
+            //    Message = i.ToString()
+            //};
+
+            //Device.BeginInvokeOnMainThread(() => {
+            //    MessagingCenter.Send<TickedMessage>(message, "TickedMessage");
+            //});
+        }
+
+
     }
 }
+
+
