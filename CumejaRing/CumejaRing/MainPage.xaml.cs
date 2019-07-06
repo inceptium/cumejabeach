@@ -18,11 +18,13 @@ namespace CumejaRing
         public MainPage()
         {
             InitializeComponent();
+            
         }
 
         void Handle_Clicked(object sender, System.EventArgs e)
         {
-            stack_status_monitor.IsVisible = true;
+            
+            
         }
 
         void radio_button_clicked(object sender, System.EventArgs e)
@@ -31,6 +33,20 @@ namespace CumejaRing
             //stack_NumeroPosto.IsVisible = true;
             bt_avanti.IsEnabled = true;
 
+        }
+
+        void onBt_ChiamaCameriere(object sender, System.EventArgs e)
+        {
+           
+        }
+
+        void onBT_Avanti(object sender, System.EventArgs e)
+        {
+            stack_contenitore.Children.Clear();
+            ViewNumPosto cont = new ViewNumPosto();
+            cont.location = CurrentLocationSelection;
+            stack_contenitore.Children.Add(cont);
+            
         }
     }
 }
