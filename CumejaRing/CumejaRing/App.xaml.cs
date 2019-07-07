@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using InceptiumAPI.com.inceptium.httpclient;
+using Xamarin.Essentials;
 
 namespace CumejaRing
 {
@@ -26,6 +27,17 @@ namespace CumejaRing
             inClient = new INHTTPClient();
             inCliConfig = new INHTTPClientConfig();
             inCredential = new INHTTPClientCredential();
+
+            //string id = System.Guid.NewGuid().ToString();
+            Console.WriteLine("ID Sistema -> "+System.Guid.NewGuid().ToString());
+            Console.WriteLine("ID Sistema -> " + System.Guid.NewGuid().ToString());
+            Console.WriteLine("ID Sistema Idiom -> " + DeviceInfo.Idiom);
+            Console.WriteLine("ID Sistema Manufacture -> " + DeviceInfo.Manufacturer);
+            Console.WriteLine("ID Sistema Model -> " + DeviceInfo.Model);
+            Console.WriteLine("ID Sistema Name -> " + DeviceInfo.Name);
+            Console.WriteLine("ID Sistema Platform -> " + DeviceInfo.Platform);
+            Console.WriteLine("ID Sistema Versione -> " + DeviceInfo.Version);
+            Console.WriteLine("ID Sistema Ver to String -> " + DeviceInfo.VersionString);
 
         }
         public static App getInstance()

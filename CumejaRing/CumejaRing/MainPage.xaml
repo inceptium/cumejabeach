@@ -22,7 +22,7 @@
                     <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="CenterAndExpand" Padding="20,0,0,20">
                         <input:RadioButtonGroupView x:Name="radio_button" VerticalOptions="FillAndExpand">
                             <FlexLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Direction="Column" AlignItems="Start" JustifyContent="SpaceEvenly">
-                                <input:RadioButton Grid.Row="0" Text="in spiaggia" TextColor="Teal" TextFontSize="25" Clicked="radio_button_clicked">
+                                <input:RadioButton Value="OMBRELLONE" Grid.Row="0" Text="in spiaggia" TextColor="Teal" TextFontSize="25" Clicked="radio_button_clicked">
                                     <input:RadioButton.FontFamily>
                                         <OnPlatform x:TypeArguments="x:String">
                                             <On Platform="iOS" Value="Lobster-Regular" />
@@ -30,7 +30,7 @@
                                         </OnPlatform>
                                     </input:RadioButton.FontFamily>
                                 </input:RadioButton>
-                                <input:RadioButton Grid.Row="1" Text="ai divani" TextColor="Teal" TextFontSize="25" Clicked="radio_button_clicked">
+                                <input:RadioButton Value="DIVANO" Grid.Row="1" Text="ai divani" TextColor="Teal" TextFontSize="25" Clicked="radio_button_clicked">
                                     <input:RadioButton.FontFamily>
                                         <OnPlatform x:TypeArguments="x:String">
                                             <On Platform="iOS" Value="Lobster-Regular" />
@@ -38,7 +38,7 @@
                                         </OnPlatform>
                                     </input:RadioButton.FontFamily>
                                 </input:RadioButton>
-                                <input:RadioButton Grid.Row="2" Text="ai tavoli" TextColor="Teal" Clicked="radio_button_clicked" TextFontSize="25">
+                                <input:RadioButton Value="TAVOLO" Grid.Row="2" Text="ai tavoli" TextColor="Teal" Clicked="radio_button_clicked" TextFontSize="25">
                                     <input:RadioButton.FontFamily>
                                         <OnPlatform x:TypeArguments="x:String">
                                             <On Platform="iOS" Value="Lobster-Regular" />
@@ -46,7 +46,7 @@
                                         </OnPlatform>
                                     </input:RadioButton.FontFamily>
                                 </input:RadioButton>
-                                <input:RadioButton Grid.Row="3" Text="in piscina" TextColor="Teal" Clicked="radio_button_clicked" TextFontSize="25">
+                                <input:RadioButton Value="PISCINA" Grid.Row="3" Text="in piscina" TextColor="Teal" Clicked="radio_button_clicked" TextFontSize="25">
                                     <input:RadioButton.FontFamily>
                                         <OnPlatform x:TypeArguments="x:String">
                                             <On Platform="iOS" Value="Lobster-Regular" />

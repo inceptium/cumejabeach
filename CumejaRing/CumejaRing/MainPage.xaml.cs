@@ -29,9 +29,10 @@ namespace CumejaRing
 
         void radio_button_clicked(object sender, System.EventArgs e)
         {
-            CurrentLocationSelection=(sender as RadioButton).Text;
+            CurrentLocationSelection=(sender as RadioButton).Value.ToString();
             //stack_NumeroPosto.IsVisible = true;
             bt_avanti.IsEnabled = true;
+            Console.WriteLine("indice: "+ (sender as RadioButton).Value);
 
         }
 
@@ -44,7 +45,7 @@ namespace CumejaRing
         {
             stack_contenitore.Children.Clear();
             ViewNumPosto cont = new ViewNumPosto();
-            cont.location = "OMBRELLONE"; // CurrentLocationSelection;
+            cont.location = CurrentLocationSelection;
             stack_contenitore.Children.Add(cont);
             cont.focus();
             
