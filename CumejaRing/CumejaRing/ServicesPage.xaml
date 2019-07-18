@@ -17,8 +17,8 @@
                                 
                             </Grid.ColumnDefinitions>
                             <StackLayout x:Name="stack_chiama_cameriere" Grid.Row="0" Grid.Column="0" >
-                                <Label Text="Chiama Cameriere" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center" BackgroundColor="Silver" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
-                                
+<!--                                <Label Text="Chiama Cameriere" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center" BackgroundColor="Silver" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>-->
+                                <Image Aspect="AspectFit"  Source="cameriereblu.png"/>
                             </StackLayout>
                             <StackLayout Grid.Row="0" Grid.Column="1">
                                 <BoxView BackgroundColor="Silver" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">

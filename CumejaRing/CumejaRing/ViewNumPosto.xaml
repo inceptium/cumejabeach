@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CumejaRing.ViewNumPosto">
     <ContentView.Content>
-        <StackLayout x:Name="stack_position_request" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <StackLayout Padding="15,15,15,15" x:Name="stack_position_request" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <StackLayout x:Name="blocco_domanda">
                 <Label HorizontalTextAlignment="Center" Text="in quale posto?" FontSize="30" TextColor="Teal">
                     <Label.FontFamily>
