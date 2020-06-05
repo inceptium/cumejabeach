@@ -142,6 +142,7 @@ namespace CumejaBeach.xaml
                         GrigliaOmbrelloni.Children.Clear();
                         int xx = 0;
                         int yy = 0;
+                        int num_post = 0;
 
                         foreach (ItemOmbrelloni ombrellone in ombrellone_List)
                         {
@@ -159,16 +160,28 @@ namespace CumejaBeach.xaml
 
 
                                 GrigliaOmbrelloni.Children.Add(stack, xx, yy);
-                                xx++;
-                                if (xx == 8)
+                                num_post++;
+                                
+                                if (num_post > 112)
                                 {
-                                    xx++; ;
+                                    xx=xx+2;
                                 }
-                                if (xx == 20)
+                                else
                                 {
-                                    yy++;
-                                    xx = 0;
+                                    xx++;
+                                    if (xx == 7)
+                                    {
+                                        xx++;
+                                    }
+                                    if (xx > 16)
+                                    {
+                                        yy++;
+                                        xx = 0;
+                                    }
                                 }
+                                
+
+
 
                             }
                             //scroolOmbrelloni.WidthRequest = Content.Width;

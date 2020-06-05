@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Plugin.InputKit.Shared.Controls;
 using Xamarin.Forms;
 
 namespace CumejaRing

@@ -21,7 +21,7 @@ namespace CumejaRing
         public App()
         {
             InitializeComponent();
-            
+
             MainPage = new MasterPage();
             me = this;
             inClient = new INHTTPClient();
@@ -29,7 +29,7 @@ namespace CumejaRing
             inCredential = new INHTTPClientCredential();
 
             //string id = System.Guid.NewGuid().ToString();
-            Console.WriteLine("ID Sistema -> "+System.Guid.NewGuid().ToString());
+            Console.WriteLine("ID Sistema -> " + System.Guid.NewGuid().ToString());
             Console.WriteLine("ID Sistema -> " + System.Guid.NewGuid().ToString());
             Console.WriteLine("ID Sistema Idiom -> " + DeviceInfo.Idiom);
             Console.WriteLine("ID Sistema Manufacture -> " + DeviceInfo.Manufacturer);
@@ -61,7 +61,7 @@ namespace CumejaRing
 
         public void ConfigureINHTTP()
         {
-  
+
 
             inCliConfig.serverIP = "192.168.101.115";
             inCliConfig.serverPort = "8888";
