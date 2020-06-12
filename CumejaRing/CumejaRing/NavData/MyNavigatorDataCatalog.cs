@@ -43,14 +43,22 @@ namespace CumejaRing.NavData
             {
                 String selectrecor = "where id_Father='' and exposeOnWeb=true ";
                 var stringa_inbyte = System.Text.Encoding.UTF8.GetBytes(selectrecor);
-                categorie = await inClient.SendCommand("callappcommand?command=getrecords::class=com.eterea.data.registry.articles.ArticlesCategory::filter.b64=" + Convert.ToBase64String(stringa_inbyte) + "::", false, true);
+
+                String order = "Order by description";
+                var stringa_order_in_byte = System.Text.Encoding.UTF8.GetBytes(order);
+
+                categorie = await inClient.SendCommand("callappcommand?command=getrecords::class=com.eterea.data.registry.articles.ArticlesCategory::filter.b64=" +
+                    Convert.ToBase64String(stringa_inbyte) + "::order.b64=" + Convert.ToBase64String(stringa_order_in_byte) + "::", false, true);
             }
             else
             {
                 String selectrecor = "where id_Father='" + CategorySelected.id_ArticlesCategory + "' and exposeOnWeb=true ";
                 var stringa_inbyte = System.Text.Encoding.UTF8.GetBytes(selectrecor);
+                String order = "Order by description";
+                var stringa_order_in_byte = System.Text.Encoding.UTF8.GetBytes(order);
 
-                categorie = await inClient.SendCommand("callappcommand?command=getrecords::class=com.eterea.data.registry.articles.ArticlesCategory::filter.b64=" + Convert.ToBase64String(stringa_inbyte) + "::", false, true);
+                categorie = await inClient.SendCommand("callappcommand?command=getrecords::class=com.eterea.data.registry.articles.ArticlesCategory::filter.b64=" +
+                    Convert.ToBase64String(stringa_inbyte) + "::order.b64=" + Convert.ToBase64String(stringa_order_in_byte) + "::", false, true);
 
             }
             if (categorie.StartsWith("["))
@@ -123,10 +131,14 @@ namespace CumejaRing.NavData
                 {
                     addLinea();
                 }
+                else
+                {
+                    _ = LoadArticlesAsync();
+                }
 
 
             }
-            _ = LoadArticlesAsync();
+
             activityIndicator.IsVisible = false;
             activityIndicator.IsRunning = false;
 
@@ -150,8 +162,12 @@ namespace CumejaRing.NavData
 
 
             String selectrecor = "where articlesCategoryCode='" + CategorySelected.categoryFullPathCode + "'";
+            String order = "Order by description";
             var stringa_inbyte = System.Text.Encoding.UTF8.GetBytes(selectrecor);
-            articoli = await inClient.SendCommand("callappcommand?command=getrecords::class=com.eterea.data.registry.articles.QArticlesFeaturesForMobile::filter.b64=" + Convert.ToBase64String(stringa_inbyte) + "::", false, true);
+            var stringa_order_in_byte = System.Text.Encoding.UTF8.GetBytes(order);
+
+            articoli = await inClient.SendCommand("callappcommand?command=getrecords::class=com.eterea.data.registry.articles.QArticlesFeaturesForMobile::filter.b64=" +
+                Convert.ToBase64String(stringa_inbyte) + "::order.b64=" + Convert.ToBase64String(stringa_order_in_byte) + "::", false, true);
 
             if (articoli.StartsWith("["))
             {
@@ -184,7 +200,7 @@ namespace CumejaRing.NavData
 
                 if (lista_articoli.Count == 0)
                 {
-                    
+
                     Label inlabel = new Label();
                     inlabel.Text = "Non ci sono articoli in questa categoria";
                     inlabel.HorizontalTextAlignment = TextAlignment.Start;
@@ -195,11 +211,11 @@ namespace CumejaRing.NavData
                     inGrid.addViewInPosition(row, 0, inlabel);
                     row++;
                 }
-                
+
             }
             else
             {
-                
+
                 Label inlabel = new Label();
                 inlabel.Text = "ci sono stati problemi durante il caricamento!!!";
                 inlabel.HorizontalTextAlignment = TextAlignment.Start;
