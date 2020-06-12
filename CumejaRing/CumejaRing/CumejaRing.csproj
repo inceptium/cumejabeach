@@ -21,4 +21,9 @@
   <ItemGroup>
     <Compile Remove="MainPage %28copia%29.xaml.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="jsonmodel\" />
+    <Folder Include="NavData\" />
+    <Folder Include="EventBuilder\" />
+  </ItemGroup>
 </Project>

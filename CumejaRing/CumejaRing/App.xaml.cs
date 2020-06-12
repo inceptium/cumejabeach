@@ -4,6 +4,7 @@ using Xamarin.Forms.Xaml;
 using InceptiumAPI.com.inceptium.httpclient;
 using Xamarin.Essentials;
 using InceptiumAPI.com.inceptium.core.builder;
+using CumejaRing.EventBuilder;
 
 namespace CumejaRing
 {
@@ -52,7 +53,7 @@ namespace CumejaRing
             INBuilder inbuilda = new INBuilder(config, "com.cumejaring.IncAppCumejaRing", "https://portal.inceptium.it/AppMedia/fc/app/logo_cumeja.png");
             
 
-            //inbuilda.UserEventItemGrid = new MyEventOnGrid();
+            inbuilda.UserEventItemGrid = new MyEventOnGrid();
 
             NavigationPage navigationPage = new NavigationPage(inbuilda.MainPage());
             
