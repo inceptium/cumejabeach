@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using InceptiumAPI.com.inceptium.httpclient;
 using Xamarin.Essentials;
+using InceptiumAPI.com.inceptium.core.builder;
 
 namespace CumejaRing
 {
@@ -22,11 +23,7 @@ namespace CumejaRing
         {
             InitializeComponent();
 
-            MainPage = new MasterPage();
-            me = this;
-            inClient = new INHTTPClient();
-            inCliConfig = new INHTTPClientConfig();
-            inCredential = new INHTTPClientCredential();
+          
 
             //string id = System.Guid.NewGuid().ToString();
             Console.WriteLine("ID Sistema -> " + System.Guid.NewGuid().ToString());
@@ -38,6 +35,32 @@ namespace CumejaRing
             Console.WriteLine("ID Sistema Platform -> " + DeviceInfo.Platform);
             Console.WriteLine("ID Sistema Versione -> " + DeviceInfo.Version);
             Console.WriteLine("ID Sistema Ver to String -> " + DeviceInfo.VersionString);
+
+            INHTTPClientConfig config = new INHTTPClientConfig();
+            config.serverIP = "portal.inceptium.it";
+            config.serverPort = "443";
+            config.reversProxyPath = "inapi/";
+            config.sslMOde = true;
+
+            INHTTPClientCredential credential = new INHTTPClientCredential();
+            credential.inceptiumID = "fc";
+            credential.login = "admin";
+            credential.password = "*caputoemini1";
+
+            config.inceptiumCredential = credential;
+
+            INBuilder inbuilda = new INBuilder(config, "com.cumejaring.IncAppCumejaRing", "https://portal.inceptium.it/AppMedia/fc/app/logo_cumeja.png");
+            
+
+            //inbuilda.UserEventItemGrid = new MyEventOnGrid();
+
+            NavigationPage navigationPage = new NavigationPage(inbuilda.MainPage());
+            
+            
+            //navigationPage.BarBackgroundColor = Color.White;
+            //navigationPage.BarTextColor = Color.Brown;
+
+            MainPage = navigationPage;
 
         }
         public static App getInstance()
