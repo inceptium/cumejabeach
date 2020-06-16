@@ -20,9 +20,9 @@ namespace CumejaRing.EventBuilder
             {
                 CallCatalogo(itemGrid, nav);
             }
-            else if (menu.id_menu.Equals("id_1.2"))
+            else if (menu.id_menu.Equals("men_5"))
             {
-                CallLinee(itemGrid, nav);
+                CallCameriere(itemGrid, nav);
             }
             else if (menu.id_menu.Equals("id_1.3"))
             {
@@ -39,11 +39,10 @@ namespace CumejaRing.EventBuilder
             nav.PushAsync(catalogo);
         }
 
-        private void CallLinee(INItemGrid itemGrid, INavigation nav)
+        private void CallCameriere(INItemGrid itemGrid, INavigation nav)
         {
-            MyNavigatorDataFeatures feat = new MyNavigatorDataFeatures(itemGrid.IncClient);
-            feat.WhereClausole = "where description like 'linea%'";
-            _ = feat.LoadAsync();
+            SelectLocation feat = new SelectLocation(itemGrid.IncClient);
+            
             nav.PushAsync(feat);
         }
 

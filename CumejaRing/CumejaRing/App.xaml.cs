@@ -13,10 +13,7 @@ namespace CumejaRing
 
 
         static App me;
-        static INHttpClientConfigEvent inhttpEvent;
-        public static INHTTPClientConfig inCliConfig;
-        static INHTTPClientCredential inCredential;
-        public INHTTPClient inClient;
+        
 
 
         public System.Threading.CancellationTokenSource lastCancellationTokenRing;
@@ -83,33 +80,6 @@ namespace CumejaRing
             // Handle when your app resumes
         }
 
-        public void ConfigureINHTTP()
-        {
-
-
-            inCliConfig.serverIP = "192.168.101.115";
-            inCliConfig.serverPort = "8888";
-
-
-            inCredential.inceptiumID = "FC001";
-            inCredential.login = "admin";
-            inCredential.password = "gibuti";
-
-            inCliConfig.inceptiumCredential = inCredential;
-            inClient.httpInceptiumConfig = inCliConfig;
-
-            //if (inhttpEvent == null)
-            //{
-            //    inhttpEvent = new INHTTPCumejaRingEvent();
-            //    inCliConfig.inevent = inhttpEvent;
-
-            //}
-
-
-
-
-
-
-        }
+        
     }
 }

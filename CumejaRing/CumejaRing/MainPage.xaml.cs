@@ -42,11 +42,11 @@ namespace CumejaRing
 
         void onBT_Avanti(object sender, System.EventArgs e)
         {
-            stack_contenitore.Children.Clear();
-            ViewNumPosto cont = new ViewNumPosto();
-            cont.location = CurrentLocationSelection;
-            stack_contenitore.Children.Add(cont);
-            cont.focus();
+            //stack_contenitore.Children.Clear();
+            //ViewNumPosto cont = new ViewNumPosto();
+            //cont.location = CurrentLocationSelection;
+            //stack_contenitore.Children.Add(cont);
+            //cont.focus();
             
         }
     }

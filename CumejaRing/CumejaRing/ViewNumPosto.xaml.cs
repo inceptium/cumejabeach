@@ -10,11 +10,13 @@ namespace CumejaRing
     {
         INHTTPClient inClient;
         public string location { get; set; }
-        public ViewNumPosto()
+        public string location_type { get; set; }
+
+        public ViewNumPosto(INHTTPClient inClient)
         {
             InitializeComponent();
-            inClient = App.getInstance().inClient;
-            
+            this.inClient = inClient;
+
         }
 
         public void focus()
@@ -51,26 +53,29 @@ namespace CumejaRing
 
                 Console.WriteLine("Leggo -> : new session");
 
-                App.getInstance().ConfigureINHTTP();
+
                 var sessione = await inClient.getNewWebSessionAsync();
 
 
-                incTaskRest = await inClient.SendCommand("load_app?classapp=com.cumejaring.AppCumejaRing::", true, false);
+                incTaskRest = await inClient.SendCommand("load_app?classapp=com.cumejaring.IncAppCumejaRing::", true, false);
 
 
 
                 if (incTaskRest.StartsWith("TASK"))
                 {
-                    var rest = await inClient.SendCommand("callappcommand?command=executemethod::class=com.cumejaring.datamodel.beach.crPostoRicreativo::method=ring::code_location=" + entry_posto.Text + "::ringfrom=device::type=" + location + "::", false, false);
+                    var taskwait = await inClient.WaitTask(incTaskRest, 3000);
+                    //var rest = await inClient.SendCommand("callappcommand?command=executemethod::class=com.cumejaring.datamodel.beach.PostoRicreativo_Ring::method=ring::code_location=" + entry_posto.Text + "::ringfrom=device::type=" + location_type + "::", false, false);
+                    var rest = await inClient.executeMethod("com.cumejaring.datamodel.beach.PostoRicreativo_Ring", "ring",
+                        "code_location=" + entry_posto.Text + "::ringfrom=device::type=" + location_type);
 
                     if (rest == "RING_OK")
                     {
-                        label_status.Text = "la sua richiesta è stata correttamente inviata!!! " ;
+                        label_status.Text = "la sua richiesta è stata correttamente inviata!!! ";
                         blocco_domanda.IsVisible = false;
                     }
                     else
                     {
-                        label_status.Text = "Controlla il numero di posto !!! (" + location+")";
+                        label_status.Text = "Controlla il numero di posto !!! (" + location + ")";
                     }
 
 
@@ -84,7 +89,7 @@ namespace CumejaRing
             }
             catch
             {
-                label_status.Text = "Ci sono probemi di connessione !!!" ;
+                label_status.Text = "Ci sono probemi di connessione !!!";
 
             }
 
