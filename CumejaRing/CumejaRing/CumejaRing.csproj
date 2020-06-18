@@ -26,5 +26,6 @@
     <Folder Include="NavData\" />
     <Folder Include="EventBuilder\" />
     <Folder Include="jsonmodel\ring\" />
+    <Folder Include="httpconfig\" />
   </ItemGroup>
 </Project>

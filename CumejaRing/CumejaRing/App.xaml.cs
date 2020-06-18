@@ -5,6 +5,7 @@ using InceptiumAPI.com.inceptium.httpclient;
 using Xamarin.Essentials;
 using InceptiumAPI.com.inceptium.core.builder;
 using CumejaRing.EventBuilder;
+using CumejaRing.httpconfig;
 
 namespace CumejaRing
 {
@@ -39,6 +40,7 @@ namespace CumejaRing
             config.serverPort = "443";
             config.reversProxyPath = "inapi/";
             config.sslMOde = true;
+            config.inevent = new EventoIncClient();
 
             INHTTPClientCredential credential = new INHTTPClientCredential();
             credential.inceptiumID = "fc";
