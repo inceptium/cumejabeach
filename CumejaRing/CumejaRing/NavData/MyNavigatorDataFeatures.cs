@@ -144,9 +144,6 @@ namespace CumejaRing.NavData
                 List<ArticlesRegistry> lista_articoli = JsonConvert.DeserializeObject<List<ArticlesRegistry>>(articoli);
                 foreach (ArticlesRegistry art in lista_articoli)
                 {
-
-
-
                     if (!art.id_ArticlesRegistry.Equals(old.id_ArticlesRegistry))
                     {
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -66,6 +67,7 @@ namespace CumejaRing.NavData
 
             item.Children.Add(inlabel_titolo);
 
+           
             // description
             Label inlabel_des = new Label();
             inlabel_des.Text = GetTextFromBase64(ArticleSelected.note_b64);
@@ -73,36 +75,51 @@ namespace CumejaRing.NavData
             inlabel_des.HorizontalOptions = LayoutOptions.CenterAndExpand;
             inlabel_des.VerticalTextAlignment = TextAlignment.Center;
             inlabel_des.TextColor = Color.Gray;
-
+            inlabel_des.Padding = new Thickness(20, 0, 20, 0);
 
             item.Children.Add(inlabel_des);
 
-            // description
-            Button bt_documentazione = new Button();
-            bt_documentazione.Text = "  Documentazione  ";
-            bt_documentazione.BorderWidth = 1;
-            bt_documentazione.BorderColor = Color.Silver;
-            bt_documentazione.HorizontalOptions = LayoutOptions.CenterAndExpand;
+
+            //prezzo
+            Label inlabelprice = new Label();
+            var culture = CultureInfo.CreateSpecificCulture("it-EU");
+            culture.NumberFormat.CurrencyDecimalSeparator = ",";
+            culture.NumberFormat.CurrencyGroupSeparator = ".";
+
+            inlabelprice.Text = ArticleSelected.sellingPrice.ToString("C", culture);
+            inlabelprice.HorizontalTextAlignment = TextAlignment.Center;
+            inlabelprice.HorizontalOptions = LayoutOptions.Center;
+            inlabelprice.VerticalTextAlignment = TextAlignment.Center;
+            inlabelprice.TextColor = Color.Gray;
+
+            item.Children.Add(inlabelprice);
+
+            //// description
+            //Button bt_documentazione = new Button();
+            //bt_documentazione.Text = "  Documentazione  ";
+            //bt_documentazione.BorderWidth = 1;
+            //bt_documentazione.BorderColor = Color.Silver;
+            //bt_documentazione.HorizontalOptions = LayoutOptions.CenterAndExpand;
 
 
-            item.Children.Add(bt_documentazione);
-            //--------------------------------------
+            //item.Children.Add(bt_documentazione);
+            ////--------------------------------------
 
 
-            //entri quantitità
-            StackLayout sta_quantita = new StackLayout();
-            sta_quantita.Orientation = StackOrientation.Horizontal;
-            sta_quantita.HorizontalOptions = LayoutOptions.CenterAndExpand;
-           
-            Label lb_qua = new Label();
-            lb_qua.Text = "Quantità";
-            lb_qua.VerticalTextAlignment = TextAlignment.Center;
-            Entry entru_qua = new Entry();
-            entru_qua.Text = "0";
-            sta_quantita.Children.Add(lb_qua);
-            sta_quantita.Children.Add(entru_qua);
+            ////entri quantitità
+            //StackLayout sta_quantita = new StackLayout();
+            //sta_quantita.Orientation = StackOrientation.Horizontal;
+            //sta_quantita.HorizontalOptions = LayoutOptions.CenterAndExpand;
 
-            item.Children.Add(sta_quantita);
+            //Label lb_qua = new Label();
+            //lb_qua.Text = "Quantità";
+            //lb_qua.VerticalTextAlignment = TextAlignment.Center;
+            //Entry entru_qua = new Entry();
+            //entru_qua.Text = "0";
+            //sta_quantita.Children.Add(lb_qua);
+            //sta_quantita.Children.Add(entru_qua);
+
+            //item.Children.Add(sta_quantita);
 
             inGrid.addInPosition(0, 0, item);
             //Label inlabel = new Label();
