@@ -68,8 +68,8 @@ namespace CumejaRing.NavData
                     INItemGrid item = new INItemGrid("", this.Navigation, this.inClient);
                     
                     item.Orientation = StackOrientation.Horizontal;
-                    item.VerticalOptions = LayoutOptions.FillAndExpand;
-                    item.HorizontalOptions = LayoutOptions.Start;
+                    ////item.VerticalOptions = LayoutOptions.FillAndExpand;
+                    item.HorizontalOptions = LayoutOptions.FillAndExpand;
                     item.HeightRequest = 130;
 
                     item.VarObject = feat;
@@ -81,7 +81,7 @@ namespace CumejaRing.NavData
                     imageSource.CacheValidity = new TimeSpan(0, 1, 0, 0);
                     imm.Source = imageSource;
                     imm.VerticalOptions = LayoutOptions.FillAndExpand;
-                    imm.HorizontalOptions = LayoutOptions.FillAndExpand;
+                    imm.HorizontalOptions = LayoutOptions.Start;
                     imm.Aspect = Aspect.AspectFit;
                     imm.HeightRequest = 100;
                     imm.WidthRequest = 100;
@@ -101,8 +101,8 @@ namespace CumejaRing.NavData
                     Label inlabel = new Label();
                     inlabel.Text = feat.description;
                     inlabel.HorizontalTextAlignment = TextAlignment.Start;
-                    inlabel.HorizontalOptions = LayoutOptions.CenterAndExpand;
-                    inlabel.VerticalTextAlignment = TextAlignment.Center;
+                    inlabel.HorizontalOptions = LayoutOptions.EndAndExpand;
+                    inlabel.VerticalTextAlignment = TextAlignment.Start;
                     inlabel.TextColor = Color.Gray;
 
                     item.Children.Add(inlabel);

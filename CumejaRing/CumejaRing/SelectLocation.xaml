@@ -4,7 +4,7 @@
         <!-- Place new controls here -->
         <StackLayout x:Name="stack_contenitore" IsVisible="true" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand">
             <StackLayout x:Name="stack_location" IsVisible="true" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand">
-                <Label HorizontalTextAlignment="Center" Text="Dove ti trovi?" FontSize="30" TextColor="Teal">
+                <Label HorizontalTextAlignment="Center" Text="Dove ti trovi?" FontSize="30" TextColor="#004f71">
                     <Label.FontFamily>
                         <OnPlatform x:TypeArguments="x:String">
                             <On Platform="iOS" Value="Lobster-Regular" />
@@ -27,11 +27,11 @@
                                                     <On Platform="Android" Value="Lobster-Regular.ttf#Lobster-Regular" />
                                                 </OnPlatform>
                                             </Label.FontFamily>
-                                        </Label>-->
+                                     </Label>-->
                                     <StackLayout HeightRequest="60" Orientation="Vertical" VerticalOptions="FillAndExpand">
                                         <StackLayout Orientation="Horizontal">
                                             <!--                                                <Image WidthRequest="30" HeightRequest="30" Source="{Binding image}" VerticalOptions="Center" BackgroundColor="Silver"/>-->
-                                            <Label HeightRequest="60" BackgroundColor="#5793f2" Text="{Binding titleInApp}" TextColor="White" VerticalOptions="Center" VerticalTextAlignment="Center" FontSize="25" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center">
+                                            <Label HeightRequest="60" BackgroundColor="#2cccd3" Text="{Binding titleInApp}" TextColor="White" VerticalOptions="Center" VerticalTextAlignment="Center" FontSize="25" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center">
                                                 <Label.FontFamily>
                                                     <OnPlatform x:TypeArguments="x:String">
                                                         <On Platform="iOS" Value="Lobster-Regular" />

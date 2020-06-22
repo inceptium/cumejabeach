@@ -54,7 +54,7 @@ namespace CumejaRing
             var view = new ViewNumPosto(incClient);
             page.Content = view;
             view.location = item.titleInApp;
-            view.location_type = item.serviceAreaCode;
+            view.location_type = item.id_ServiceArea_Ring;
 
             await Navigation.PushAsync(page);
 

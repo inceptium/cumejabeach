@@ -58,12 +58,13 @@ namespace CumejaRing.NavData
             //titolo articolo
             Label inlabel_titolo = new Label();
             inlabel_titolo.Text = ArticleSelected.description;
-            inlabel_titolo.HorizontalTextAlignment = TextAlignment.Start;
+            inlabel_titolo.HorizontalTextAlignment = TextAlignment.Center;
             inlabel_titolo.HorizontalOptions = LayoutOptions.CenterAndExpand;
             inlabel_titolo.VerticalTextAlignment = TextAlignment.Center;
             inlabel_titolo.TextColor = Color.Gray;
             inlabel_titolo.FontAttributes = FontAttributes.Bold;
             inlabel_titolo.HeightRequest = 60;
+            inlabel_titolo.Padding = new Thickness(25, 0, 25, 0);
 
             item.Children.Add(inlabel_titolo);
 
@@ -75,7 +76,7 @@ namespace CumejaRing.NavData
             inlabel_des.HorizontalOptions = LayoutOptions.CenterAndExpand;
             inlabel_des.VerticalTextAlignment = TextAlignment.Center;
             inlabel_des.TextColor = Color.Gray;
-            inlabel_des.Padding = new Thickness(20, 0, 20, 0);
+            inlabel_des.Padding = new Thickness(25, 0, 25, 0);
 
             item.Children.Add(inlabel_des);
 

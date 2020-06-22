@@ -65,8 +65,8 @@ namespace CumejaRing
                 {
                     var taskwait = await inClient.WaitTask(incTaskRest, 3000);
                     //var rest = await inClient.SendCommand("callappcommand?command=executemethod::class=com.cumejaring.datamodel.beach.PostoRicreativo_Ring::method=ring::code_location=" + entry_posto.Text + "::ringfrom=device::type=" + location_type + "::", false, false);
-                    var rest = await inClient.executeMethod("com.cumejaring.datamodel.beach.PostoRicreativo_Ring", "ring",
-                        "code_location=" + entry_posto.Text + "::ringfrom=device::type=" + location_type);
+                    var rest = await inClient.executeMethod("com.cumejaring.datamodel.beach.PointServiceArea_Ring", "ring",
+                        "poitCode=" + entry_posto.Text + "::ringfrom=device::id_ServiceArea_Ring=" + location_type);
 
                     if (rest == "RING_OK")
                     {

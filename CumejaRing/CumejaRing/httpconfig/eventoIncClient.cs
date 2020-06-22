@@ -16,6 +16,7 @@ namespace CumejaRing.httpconfig
            if (status != INHttpClientConnectionStatus.CONNECTED)
             {
                 _ = client.getNewWebSessionAsync();
+                _= client.SendCommand("load_app?classapp=com.cumejaring.IncAppCumejaRing::", true, false);
             }
         }
 
