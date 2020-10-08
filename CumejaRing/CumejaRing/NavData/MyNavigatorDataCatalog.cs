@@ -20,15 +20,15 @@ namespace CumejaRing.NavData
         {
             First_Stack.VerticalOptions = LayoutOptions.FillAndExpand;
 
-
+            activityIndicator.IsVisible = true;
+            activityIndicator.IsRunning = true;
 
 
         }
 
         public async Task LoadAsync()
         {
-            activityIndicator.IsVisible = true;
-            activityIndicator.IsRunning = true;
+           
             this.TitleStack.Padding = new Thickness(0, 20, 0, 10);
 
             if (CategorySelected != null)

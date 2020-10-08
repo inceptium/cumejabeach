@@ -7,7 +7,7 @@ namespace CumejaRing.NavData
 {
     public class EventONCategorySelect : INItemGridEvent
     {
-        public void OnTapItemGridAsync(INItemGrid itemGrid, INavigation nav)
+        public async void OnTapItemGridAsync(INItemGrid itemGrid, INavigation nav)
         {
             ArticlesCategory cat =(ArticlesCategory) itemGrid.VarObject;
             if (cat != null)
@@ -15,7 +15,7 @@ namespace CumejaRing.NavData
                 MyNavigatorDataCatalog catalogo = new MyNavigatorDataCatalog(itemGrid.IncClient);
                 
                 catalogo.CategorySelected= cat;
-                nav.PushAsync(catalogo);
+                await nav.PushAsync(catalogo);
                 _ = catalogo.LoadAsync();
                 
 

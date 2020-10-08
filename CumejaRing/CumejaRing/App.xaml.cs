@@ -44,8 +44,8 @@ namespace CumejaRing
 
             INHTTPClientCredential credential = new INHTTPClientCredential();
             credential.inceptiumID = "fc";
-            credential.login = "admin";
-            credential.password = "*caputoemini1";
+            credential.login = "mobile";
+            credential.password = "*remote1";
 
             config.inceptiumCredential = credential;
 
@@ -57,7 +57,8 @@ namespace CumejaRing
             NavigationPage navigationPage = new NavigationPage(inbuilda.MainPage());
             
             
-            //navigationPage.BarBackgroundColor = Color.White;
+            navigationPage.BarBackgroundColor = Color.White;
+            navigationPage.BackgroundColor = Color.White;
             //navigationPage.BarTextColor = Color.Brown;
 
             MainPage = navigationPage;
