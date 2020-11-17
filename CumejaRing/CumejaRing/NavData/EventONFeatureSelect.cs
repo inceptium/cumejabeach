@@ -15,6 +15,7 @@ namespace CumejaRing.NavData
                 MyNavigatorDataFeatures features = new MyNavigatorDataFeatures(itemGrid.IncClient);
 
                 features.FeatureSelected = feat;
+  
                 nav.PushAsync(features);
                 _ = features.LoadAsync();
                 

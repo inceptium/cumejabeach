@@ -78,10 +78,13 @@ namespace CumejaRing.NavData
                     //item.BackgroundColor = new Color(100, 100, 100);
                     Image imm = new Image();
 
-                    var imageSource = new UriImageSource { Uri = new Uri(cat.iconURL) };
-                    imageSource.CachingEnabled = true;
-                    imageSource.CacheValidity = new TimeSpan(0, 1, 0, 0);
-                    imm.Source = imageSource;
+                    if (cat.iconURL.Length > 0)
+                    {
+                        var imageSource = new UriImageSource { Uri = new Uri(cat.iconURL) };
+                        imageSource.CachingEnabled = true;
+                        imageSource.CacheValidity = new TimeSpan(0, 1, 0, 0);
+                        imm.Source = imageSource;
+                    }
                     imm.VerticalOptions = LayoutOptions.FillAndExpand;
                     imm.HorizontalOptions = LayoutOptions.FillAndExpand;
                     imm.Aspect = Aspect.AspectFit;

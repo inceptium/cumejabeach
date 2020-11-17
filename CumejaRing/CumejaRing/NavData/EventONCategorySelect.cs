@@ -15,6 +15,7 @@ namespace CumejaRing.NavData
                 MyNavigatorDataCatalog catalogo = new MyNavigatorDataCatalog(itemGrid.IncClient);
                 
                 catalogo.CategorySelected= cat;
+         
                 await nav.PushAsync(catalogo);
                 _ = catalogo.LoadAsync();
                 
