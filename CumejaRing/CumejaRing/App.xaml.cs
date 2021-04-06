@@ -44,8 +44,8 @@ namespace CumejaRing
 
             INHTTPClientCredential credential = new INHTTPClientCredential();
             credential.inceptiumID = "fc";
-            credential.login = "mobile";
-            credential.password = "*remote1";
+            credential.login = "bar1";
+            credential.password = "*bar1";
 
             config.inceptiumCredential = credential;
 

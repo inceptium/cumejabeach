@@ -2,6 +2,7 @@
 using CumejaRing.NavData;
 using InceptiumAPI.com.inceptium.core.jsonmodel;
 using InceptiumAPI.com.inceptium.nav;
+using CumejaRing.NavData.Pos;
 using Xamarin.Forms;
 
 namespace CumejaRing.EventBuilder
@@ -27,6 +28,9 @@ namespace CumejaRing.EventBuilder
             else if (menu.id_menu.Equals("id_1.3"))
             {
                 CallCaratteristiche(itemGrid, nav);
+            }else if (menu.id_menu.Equals("men_rist"))
+            {
+                CallPos(itemGrid, nav);
             }
         }
 
@@ -53,5 +57,14 @@ namespace CumejaRing.EventBuilder
             _ = feat.LoadAsync();
             nav.PushAsync(feat);
         }
+        private void CallPos(INItemGrid itemGrid, INavigation nav)
+        {
+            MyPos po = new MyPos(itemGrid.IncClient);
+            po.setTitleStack(itemGrid.MenuItemGrid.menuName);
+            
+
+            nav.PushAsync(po);
+        }
+
     }
 }
