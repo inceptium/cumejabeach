@@ -25,7 +25,7 @@ namespace CumejaRing.NavData
             item.Orientation = StackOrientation.Horizontal;
             //item.VerticalOptions = LayoutOptions.FillAndExpand;
             //item.HorizontalOptions = LayoutOptions.Start;
-            item.HeightRequest = 80;
+            item.HeightRequest = 70;
             
             item.Padding = new Thickness(10, 0, 15, 0);
 
@@ -45,8 +45,8 @@ namespace CumejaRing.NavData
             imm.VerticalOptions = LayoutOptions.FillAndExpand;
             imm.HorizontalOptions = LayoutOptions.Start;
             imm.Aspect = Aspect.AspectFit;
-            imm.HeightRequest = 80;
-            imm.WidthRequest = 80;
+            imm.HeightRequest = 70;
+            imm.WidthRequest = 70;
 
 
             item.Children.Add(imm);
@@ -55,6 +55,7 @@ namespace CumejaRing.NavData
 
             Label inlabel = new Label();
             inlabel.Text = ArticleSelectd.description;
+            inlabel.FontSize = 12;
             inlabel.HorizontalTextAlignment = TextAlignment.Start;
             inlabel.HorizontalOptions = LayoutOptions.Start;
             inlabel.VerticalTextAlignment = TextAlignment.Start;
@@ -68,6 +69,7 @@ namespace CumejaRing.NavData
             culture.NumberFormat.CurrencyGroupSeparator = ".";
 
             inlabelprice.Text = ArticleSelectd.sellingPrice.ToString("C",culture);
+           
             inlabelprice.HorizontalTextAlignment = TextAlignment.Center;
             inlabelprice.HorizontalOptions = LayoutOptions.End;
             inlabelprice.VerticalTextAlignment = TextAlignment.End;

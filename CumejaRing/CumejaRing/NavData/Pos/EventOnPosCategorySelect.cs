@@ -10,6 +10,7 @@ namespace CumejaRing.NavData.Pos
     {
         public INGridView poscatnav { get; set; }
         public ActivityIndicator indicator { get; set; }
+        public INGridView articleGri { get; set; }
         public EventOnPosCategorySelect()
         {
         }
@@ -19,7 +20,7 @@ namespace CumejaRing.NavData.Pos
             ArticlesCategory cat = (ArticlesCategory)itemGrid.VarObject;
             if (cat != null)
             {
-                MyNavigatorPos pos = new MyNavigatorPos( itemGrid.IncClient, poscatnav, indicator);
+                MyNavigatorPos pos = new MyNavigatorPos( itemGrid.IncClient, poscatnav, indicator, articleGri);
 
                 pos.CategorySelected = cat;
               

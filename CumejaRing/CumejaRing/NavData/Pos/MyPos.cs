@@ -14,12 +14,16 @@ namespace CumejaRing.NavData.Pos
         private ActivityIndicator activityIndicator = new ActivityIndicator();
         public MyPos(INHTTPClient client) : base(client)
         {
-            First_Stack.VerticalOptions = LayoutOptions.FillAndExpand;
-
+           
             activityIndicator.IsVisible = true;
             activityIndicator.IsRunning = true;
             this.TitleStack.Children.Add(activityIndicator);
-            MyNavigatorPos pos= new MyNavigatorPos(client, inGrid,activityIndicator);
+            INGridView catgrid = new INGridView();
+
+            MyNavigatorPos pos= new MyNavigatorPos(client, catgrid, activityIndicator, inGrid);
+            First_Stack.VerticalOptions = LayoutOptions.FillAndExpand;
+            TitleStack.Children.Add(catgrid);
+            TitleStack.Padding = new Thickness(0, 10, 0, 0);
             _ = pos.LoadAsync();
 
         }

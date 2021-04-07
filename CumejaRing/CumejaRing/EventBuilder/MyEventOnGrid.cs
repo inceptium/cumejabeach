@@ -60,7 +60,7 @@ namespace CumejaRing.EventBuilder
         private void CallPos(INItemGrid itemGrid, INavigation nav)
         {
             MyPos po = new MyPos(itemGrid.IncClient);
-            po.setTitleStack(itemGrid.MenuItemGrid.menuName);
+            //po.setTitleStack(itemGrid.MenuItemGrid.menuName);
             
 
             nav.PushAsync(po);
