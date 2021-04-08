@@ -10,7 +10,7 @@ using CumejaRing.NavData.Pos;
 
 namespace CumejaRing.NavData
 {
-    public class MyNavigatorPos 
+    public class MyNavigatorPos
     {
         public ArticlesCategory CategorySelected { get; set; }
         int row = 0;
@@ -18,8 +18,8 @@ namespace CumejaRing.NavData
         INGridView inGrid;
         INGridView inArticleGrid;
         private ActivityIndicator activityIndicator;
-        public  int ingridpos=0;
-        private int articleRow=0;
+        public int ingridpos = 0;
+        private int articleRow = 0;
 
         public MyNavigatorPos(INHTTPClient client, INGridView ingrid, ActivityIndicator indicator, INGridView articlegrid)
         {
@@ -40,6 +40,7 @@ namespace CumejaRing.NavData
 
 
             String categorie = "";
+
 
             if (CategorySelected == null)
             {
@@ -63,13 +64,17 @@ namespace CumejaRing.NavData
                     Convert.ToBase64String(stringa_inbyte) + "::order.b64=" + Convert.ToBase64String(stringa_order_in_byte) + "::", false, true);
 
             }
+
+
+
             if (categorie.StartsWith("["))
             {
 
-                
+
+
                 INGridView catPos = new INGridView();
                 catPos.HorizontalOptions = LayoutOptions.Start;
-                
+
 
                 ScrollView scroll = new ScrollView();
                 scroll.VerticalOptions = LayoutOptions.FillAndExpand;
@@ -79,6 +84,7 @@ namespace CumejaRing.NavData
 
                 List<ArticlesCategory> lista_categorie = JsonConvert.DeserializeObject<List<ArticlesCategory>>(categorie);
                 int yy = 0;
+
                 foreach (ArticlesCategory cat in lista_categorie)
                 {
                     INItemGrid item = new INItemGrid("", null, this.inClient);
@@ -88,7 +94,7 @@ namespace CumejaRing.NavData
                     item.HeightRequest = 60;
                     item.WidthRequest = 80;
                     item.Padding = new Thickness(0, 0, 0, 0);
-                    
+
                     item.VarObject = cat;
                     //item.BackgroundColor = new Color(100, 100, 100);
                     Image imm = new Image();
@@ -132,25 +138,26 @@ namespace CumejaRing.NavData
 
                     EventOnPosCategorySelect evet = new EventOnPosCategorySelect();
                     evet.indicator = activityIndicator;
-                    evet.poscatnav = inGrid;
+                    evet.poscatingrid = inGrid;
+                    evet.posCat = inGrid.Children.Count + 1;
                     evet.articleGri = inArticleGrid;
                     item.addEventGrind(evet);
 
-                   
+
 
                     catPos.addInPosition(yy, row, item);
                     row++;
                     if (row > 5)
                     {
                         yy++;
-                        
+
                         row = 0;
 
                     }
 
                     //this.inGrid.RowSpacing = 0;
                     //"get_app_dock?devicedock=";
-                   
+
 
                 }
                 if (lista_categorie.Count == 0)
@@ -159,24 +166,31 @@ namespace CumejaRing.NavData
                 }
                 else
                 {
-                   
-                
 
-                INItemGrid contenitoreCat = new INItemGrid("", null, this.inClient);
-                contenitoreCat.Orientation = StackOrientation.Horizontal;
-                contenitoreCat.VerticalOptions = LayoutOptions.FillAndExpand;
-                contenitoreCat.HorizontalOptions = LayoutOptions.Start;
-                contenitoreCat.HeightRequest = 65*(yy+1);
-                
-                contenitoreCat.Padding = new Thickness(20, 0, 0, 0);
-               
-                contenitoreCat.Children.Add(scroll);
-                inGrid.addInPosition(ingridpos, 0, contenitoreCat);
-                ingridpos++;
+                    INItemGrid contenitoreCat = new INItemGrid("", null, this.inClient);
+                    contenitoreCat.Orientation = StackOrientation.Horizontal;
+                    contenitoreCat.VerticalOptions = LayoutOptions.FillAndExpand;
+                    contenitoreCat.HorizontalOptions = LayoutOptions.Start;
+                    contenitoreCat.HeightRequest = 65 * (yy + 1);
+                    if (CategorySelected != null)
+                    {
+                        contenitoreCat.VarObject = CategorySelected;
+                    }
+                    else
+                    {
+                        contenitoreCat.VarObject = null;
+                    }
+
+                    contenitoreCat.Padding = new Thickness(20, 0, 0, 0);
+
+                    contenitoreCat.Children.Add(scroll);
+                    inGrid.addInPosition(ingridpos, 0, contenitoreCat);
+                    //ricalcola dimensione griglia
+
+
+                    ingridpos++;
                     addLinea();
                 }
-
-
 
             }
 
@@ -186,6 +200,8 @@ namespace CumejaRing.NavData
 
         }
 
+
+
         private void addLinea()
         {
             BoxView box = new BoxView();
@@ -194,7 +210,6 @@ namespace CumejaRing.NavData
             box.HorizontalOptions = LayoutOptions.FillAndExpand;
             inGrid.addViewInPosition(ingridpos, 0, box);
             ingridpos++;
-
 
         }
 
@@ -212,46 +227,46 @@ namespace CumejaRing.NavData
 
         private async Task LoadArticlesAsync()
         {
-            
-            
+            inArticleGrid.Children.Clear();
+            inArticleGrid.RowDefinitions.Clear();
+
+            ScrollView scroll = (ScrollView)inArticleGrid.Parent;
+            //scroll.Content.HeightRequest=
+            Console.WriteLine("altezza container " + scroll.Content.Height);
+            _ = scroll.ScrollToAsync(0, 0, true);
+
+            articleRow = 0;
+
             String articoli = "";
 
 
             String selectrecor = "where articlesCategoryCode='" + CategorySelected.categoryFullPathCode + "'";
+            Console.WriteLine(selectrecor);
             String order = "Order by description";
             var stringa_inbyte = System.Text.Encoding.UTF8.GetBytes(selectrecor);
             var stringa_order_in_byte = System.Text.Encoding.UTF8.GetBytes(order);
 
-            articoli = await inClient.SendCommand("callappcommand?command=getrecords::class=com.eterea.data.registry.articles.QArticlesFeaturesForMobile::filter.b64=" +
+            articoli = await inClient.SendCommand("callappcommand?command=getrecords::class=com.eterea.data.registry.articles.QArticleRegistryIstant::filter.b64=" +
                 Convert.ToBase64String(stringa_inbyte) + "::order.b64=" + Convert.ToBase64String(stringa_order_in_byte) + "::", false, true);
 
             if (articoli.StartsWith("["))
             {
 
-                ArticlesRegistry old = new ArticlesRegistry();
+          
                 List<ArticlesRegistry> lista_articoli = JsonConvert.DeserializeObject<List<ArticlesRegistry>>(articoli);
                 foreach (ArticlesRegistry art in lista_articoli)
                 {
 
-
-
-                    if (!art.id_ArticlesRegistry.Equals(old.id_ArticlesRegistry))
-                    {
-
-
                         ItemArticles itemart = new ItemArticles(art, null, inClient);
-
-                        
                         inArticleGrid.addInPosition(articleRow, 0, itemart.getNewItemGridArticles());
                         articleRow++;
-                        old = art;
-                        addLineaArt();
+                        //addLineaArt();
 
 
                         //this.inGrid.RowSpacing = 0;
                         //"get_app_dock?devicedock=";
-                        
-                    }
+
+                   
 
                 }
 
@@ -266,13 +281,12 @@ namespace CumejaRing.NavData
                     inlabel.HeightRequest = 15;
                     inlabel.TextColor = Color.Gray;
                     inArticleGrid.addViewInPosition(articleRow, 0, inlabel);
-                    articleRow++;
+               
                 }
 
             }
             else
             {
-
                 Label inlabel = new Label();
                 inlabel.Text = "ci sono stati problemi durante il caricamento!!!";
                 inlabel.HorizontalTextAlignment = TextAlignment.Start;
@@ -282,15 +296,8 @@ namespace CumejaRing.NavData
                 inlabel.TextColor = Color.Gray;
                 inArticleGrid.addViewInPosition(articleRow, 0, inlabel);
                 Console.WriteLine(articleRow);
-                articleRow++;
+               
             }
-
-
-
-
-
-
-
         }
 
     }

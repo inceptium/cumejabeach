@@ -37,9 +37,9 @@ namespace CumejaRing.NavData
 
             Image imm = new Image();
 
-            if (ArticleSelected.urlLink.Length > 0)
+            if (ArticleSelected.imageURL.Length > 0)
             {
-                var imageSource = new UriImageSource { Uri = new Uri(ArticleSelected.urlLink) };
+                var imageSource = new UriImageSource { Uri = new Uri(ArticleSelected.imageURL) };
                 imageSource.CachingEnabled = true;
                 imageSource.CacheValidity = new TimeSpan(0, 1, 0, 0);
                 imm.Source = imageSource;

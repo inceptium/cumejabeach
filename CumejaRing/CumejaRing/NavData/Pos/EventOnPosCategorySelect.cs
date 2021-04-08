@@ -6,11 +6,12 @@ using CumejaRing.NavData.Pos;
 
 namespace CumejaRing.NavData.Pos
 {
-    public class EventOnPosCategorySelect: INItemGridEvent
+    public class EventOnPosCategorySelect : INItemGridEvent
     {
-        public INGridView poscatnav { get; set; }
+        public INGridView poscatingrid { get; set; }
         public ActivityIndicator indicator { get; set; }
         public INGridView articleGri { get; set; }
+        public int posCat { get; set; }
         public EventOnPosCategorySelect()
         {
         }
@@ -20,10 +21,23 @@ namespace CumejaRing.NavData.Pos
             ArticlesCategory cat = (ArticlesCategory)itemGrid.VarObject;
             if (cat != null)
             {
-                MyNavigatorPos pos = new MyNavigatorPos( itemGrid.IncClient, poscatnav, indicator, articleGri);
+
+
+                while (poscatingrid.Children.Count > posCat + 1)
+                {
+                    poscatingrid.Children.RemoveAt(poscatingrid.Children.Count - 1);
+                    poscatingrid.RowDefinitions.RemoveAt(poscatingrid.Children.Count - 1);
+
+                }
+                
+                
+
+
+
+                MyNavigatorPos pos = new MyNavigatorPos(itemGrid.IncClient, poscatingrid, indicator, articleGri);
 
                 pos.CategorySelected = cat;
-              
+
                 _ = pos.LoadAsync();
 
 
