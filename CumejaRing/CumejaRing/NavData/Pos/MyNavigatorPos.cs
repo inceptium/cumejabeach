@@ -18,16 +18,18 @@ namespace CumejaRing.NavData
         INGridView inGrid;
         INGridView inArticleGrid;
         private ActivityIndicator activityIndicator;
+        private INavigation navigator;
         public int ingridpos = 0;
         private int articleRow = 0;
 
-        public MyNavigatorPos(INHTTPClient client, INGridView ingrid, ActivityIndicator indicator, INGridView articlegrid)
+        public MyNavigatorPos(INHTTPClient client, INGridView ingrid, ActivityIndicator indicator, INGridView articlegrid, INavigation navigator)
         {
 
             this.inClient = client;
             this.inGrid = ingrid;
             this.activityIndicator = indicator;
             this.inArticleGrid = articlegrid;
+            this.navigator = navigator;
             ingridpos = ingrid.Children.Count;
 
         }
@@ -38,6 +40,8 @@ namespace CumejaRing.NavData
             activityIndicator.IsVisible = true;
             activityIndicator.IsRunning = true;
 
+            inArticleGrid.Children.Clear();
+            inArticleGrid.RowDefinitions.Clear();
 
             String categorie = "";
 
@@ -88,12 +92,13 @@ namespace CumejaRing.NavData
                 foreach (ArticlesCategory cat in lista_categorie)
                 {
                     INItemGrid item = new INItemGrid("", null, this.inClient);
-                    item.Orientation = StackOrientation.Vertical;
-                    item.VerticalOptions = LayoutOptions.FillAndExpand;
-                    item.HorizontalOptions = LayoutOptions.Start;
-                    item.HeightRequest = 60;
-                    item.WidthRequest = 80;
-                    item.Padding = new Thickness(0, 0, 0, 0);
+                    
+                    item.contentLayout.Orientation = StackOrientation.Vertical;
+                    item.contentLayout.VerticalOptions = LayoutOptions.CenterAndExpand;
+                    item.contentLayout.HorizontalOptions = LayoutOptions.CenterAndExpand;
+                    item.mainLayout.HeightRequest = 60;
+                    item.mainLayout.WidthRequest = 80;
+                    item.mainLayout.Padding = new Thickness(0, 0, 0, 0);
 
                     item.VarObject = cat;
                     //item.BackgroundColor = new Color(100, 100, 100);
@@ -123,7 +128,7 @@ namespace CumejaRing.NavData
                     //frm_immagine.Content = imm;
 
 
-                    item.Children.Add(imm);
+                    item.Add(imm);
 
                     Label inlabel = new Label();
                     inlabel.Text = cat.description;
@@ -133,7 +138,7 @@ namespace CumejaRing.NavData
                     inlabel.VerticalTextAlignment = TextAlignment.Center;
                     inlabel.Padding = new Thickness(0, 0, 0, 0);
                     inlabel.TextColor = Color.Gray;
-                    item.Children.Add(inlabel);
+                    item.Add(inlabel);
 
 
                     EventOnPosCategorySelect evet = new EventOnPosCategorySelect();
@@ -141,6 +146,7 @@ namespace CumejaRing.NavData
                     evet.poscatingrid = inGrid;
                     evet.posCat = inGrid.Children.Count + 1;
                     evet.articleGri = inArticleGrid;
+                    evet.navigator = navigator;
                     item.addEventGrind(evet);
 
 
@@ -168,10 +174,11 @@ namespace CumejaRing.NavData
                 {
 
                     INItemGrid contenitoreCat = new INItemGrid("", null, this.inClient);
-                    contenitoreCat.Orientation = StackOrientation.Horizontal;
-                    contenitoreCat.VerticalOptions = LayoutOptions.FillAndExpand;
-                    contenitoreCat.HorizontalOptions = LayoutOptions.Start;
-                    contenitoreCat.HeightRequest = 65 * (yy + 1);
+                   
+                    contenitoreCat.contentLayout.Orientation = StackOrientation.Horizontal;
+                    contenitoreCat.contentLayout.VerticalOptions = LayoutOptions.FillAndExpand;
+                    contenitoreCat.contentLayout.HorizontalOptions = LayoutOptions.Start;
+                    contenitoreCat.mainLayout.HeightRequest = 65 * (yy + 1);
                     if (CategorySelected != null)
                     {
                         contenitoreCat.VarObject = CategorySelected;
@@ -181,9 +188,9 @@ namespace CumejaRing.NavData
                         contenitoreCat.VarObject = null;
                     }
 
-                    contenitoreCat.Padding = new Thickness(20, 0, 0, 0);
+                    contenitoreCat.mainLayout.Padding = new Thickness(20, 0, 0, 0);
 
-                    contenitoreCat.Children.Add(scroll);
+                    contenitoreCat.Add(scroll);
                     inGrid.addInPosition(ingridpos, 0, contenitoreCat);
                     //ricalcola dimensione griglia
 
@@ -227,8 +234,7 @@ namespace CumejaRing.NavData
 
         private async Task LoadArticlesAsync()
         {
-            inArticleGrid.Children.Clear();
-            inArticleGrid.RowDefinitions.Clear();
+            
 
             ScrollView scroll = (ScrollView)inArticleGrid.Parent;
             //scroll.Content.HeightRequest=
@@ -257,7 +263,7 @@ namespace CumejaRing.NavData
                 foreach (ArticlesRegistry art in lista_articoli)
                 {
 
-                        ItemArticles itemart = new ItemArticles(art, null, inClient);
+                        ItemArticles itemart = new ItemArticles(art, navigator, inClient);
                         inArticleGrid.addInPosition(articleRow, 0, itemart.getNewItemGridArticles());
                         articleRow++;
                         //addLineaArt();

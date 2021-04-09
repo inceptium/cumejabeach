@@ -69,11 +69,12 @@ namespace CumejaRing.NavData
                 foreach (ArticlesCategory cat in lista_categorie)
                 {
                     INItemGrid item = new INItemGrid("", this.Navigation, this.inClient);
-                    item.Orientation = StackOrientation.Horizontal;
-                    item.VerticalOptions = LayoutOptions.FillAndExpand;
-                    item.HorizontalOptions = LayoutOptions.Start;
-                    item.HeightRequest = 90;
-                    item.Padding = new Thickness(20, 0, 0, 0);
+                   
+                    item.contentLayout.Orientation = StackOrientation.Horizontal;
+                    item.contentLayout.VerticalOptions = LayoutOptions.FillAndExpand;
+                    item.contentLayout.HorizontalOptions = LayoutOptions.Start;
+                    item.mainLayout.HeightRequest = 90;
+                    item.mainLayout.Padding = new Thickness(20, 0, 0, 0);
                     item.VarObject = cat;
                     //item.BackgroundColor = new Color(100, 100, 100);
                     Image imm = new Image();
@@ -102,7 +103,7 @@ namespace CumejaRing.NavData
                     //frm_immagine.Content = imm;
 
 
-                    item.Children.Add(imm);
+                    item.Add(imm);
 
                     Label inlabel = new Label();
                     inlabel.Text = cat.description;
@@ -112,7 +113,7 @@ namespace CumejaRing.NavData
                     inlabel.VerticalTextAlignment = TextAlignment.Center;
                     inlabel.Padding = new Thickness(10, 0, 0, 0);
                     inlabel.TextColor = Color.Gray;
-                    item.Children.Add(inlabel);
+                    item.Add(inlabel);
 
 
                     item.addEventGrind(new EventONCategorySelect());
@@ -188,7 +189,7 @@ namespace CumejaRing.NavData
 
                         ItemArticles itemart = new ItemArticles(art, this.Navigation, inClient);
 
-                        addLinea();
+                       
                         inGrid.addInPosition(row, 0, itemart.getNewItemGridArticles());
                         old = art;
 
@@ -233,7 +234,7 @@ namespace CumejaRing.NavData
 
 
 
-            addLinea();
+          
 
 
 

@@ -24,10 +24,10 @@ namespace CumejaRing.NavData.Pos
             inGrid.VerticalOptions = LayoutOptions.FillAndExpand;
             //catgrid.LayoutChanged += InGrid_LayoutChanged1;
 
-           
+            inGrid.RowSpacing = 20;
 
 
-            MyNavigatorPos pos= new MyNavigatorPos(client, catgrid, activityIndicator, inGrid);
+            MyNavigatorPos pos= new MyNavigatorPos(client, catgrid, activityIndicator, inGrid, this.Navigation);
             First_Stack.VerticalOptions = LayoutOptions.FillAndExpand;
             TitleStack.Children.Add(catgrid);
             this.TitleStack.Children.Add(activityIndicator);
@@ -36,17 +36,17 @@ namespace CumejaRing.NavData.Pos
 
         }
 
-        private void InGrid_LayoutChanged1(object sender, EventArgs e)
-        {
-            Console.WriteLine("cambio lay");
-            INGridView catgrid = (INGridView)sender;
-            catgrid.ForceLayout();
-            double newheight = 0;
-            foreach (View vi in catgrid.Children)
-            {
-                newheight = newheight + vi.Height;
-            }
-            catgrid.HeightRequest = newheight + 20d;
-        }
+        //private void InGrid_LayoutChanged1(object sender, EventArgs e)
+        //{
+        //    Console.WriteLine("cambio lay");
+        //    INGridView catgrid = (INGridView)sender;
+        //    catgrid.ForceLayout();
+        //    double newheight = 0;
+        //    foreach (View vi in catgrid.Children)
+        //    {
+        //        newheight = newheight + vi.Height;
+        //    }
+        //    catgrid.HeightRequest = newheight + 20d;
+        //}
     }
 }

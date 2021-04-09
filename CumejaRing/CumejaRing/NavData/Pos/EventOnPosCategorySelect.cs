@@ -12,6 +12,7 @@ namespace CumejaRing.NavData.Pos
         public ActivityIndicator indicator { get; set; }
         public INGridView articleGri { get; set; }
         public int posCat { get; set; }
+        public INavigation navigator { get; set; }
         public EventOnPosCategorySelect()
         {
         }
@@ -22,7 +23,15 @@ namespace CumejaRing.NavData.Pos
             if (cat != null)
             {
 
+                INGridView grid = (INGridView)itemGrid.mainLayout.Parent;
+                foreach (INItemGrid it in grid.inItemGridList)
+                {
+                   it.internalFrame.BorderColor = Color.White;
+                   
+                    
+                }
 
+                itemGrid.internalFrame.BorderColor = Color.LightGray;
                 while (poscatingrid.Children.Count > posCat + 1)
                 {
                     poscatingrid.Children.RemoveAt(poscatingrid.Children.Count - 1);
@@ -30,11 +39,7 @@ namespace CumejaRing.NavData.Pos
 
                 }
                 
-                
-
-
-
-                MyNavigatorPos pos = new MyNavigatorPos(itemGrid.IncClient, poscatingrid, indicator, articleGri);
+                MyNavigatorPos pos = new MyNavigatorPos(itemGrid.IncClient, poscatingrid, indicator, articleGri, navigator);
 
                 pos.CategorySelected = cat;
 

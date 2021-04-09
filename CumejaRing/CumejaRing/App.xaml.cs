@@ -6,6 +6,7 @@ using Xamarin.Essentials;
 using InceptiumAPI.com.inceptium.core.builder;
 using CumejaRing.EventBuilder;
 using CumejaRing.httpconfig;
+using Plugin.Badge.Abstractions;
 
 namespace CumejaRing
 {
@@ -55,13 +56,31 @@ namespace CumejaRing
             inbuilda.UserEventItemGrid = new MyEventOnGrid();
 
             NavigationPage navigationPage = new NavigationPage(inbuilda.MainPage());
-            
-            
+            navigationPage.Title = "Home";
+            navigationPage.IconImageSource = ImageSource.FromResource( "CumejaRing.risorse.icone.app.home.png");
+
             navigationPage.BarBackgroundColor = Color.White;
             navigationPage.BackgroundColor = Color.White;
             //navigationPage.BarTextColor = Color.Brown;
 
-            MainPage = navigationPage;
+            TabbedPage tabpage = new TabbedPage();
+            ContentPage page = new ContentPage();
+            page.Title = "Carrello";
+            page.IconImageSource = ImageSource.FromResource("CumejaRing.risorse.icone.app.carrello.png");
+           
+            TabBadge.SetBadgeColor(page, Color.Red);
+            TabBadge.SetBadgeText(page, "2");
+           
+           
+            
+            TabBadge.SetBadgePosition(page,BadgePosition.PositionTopRight);
+
+
+            tabpage.Children.Add(navigationPage);
+            tabpage.Children.Add(page);
+            
+
+            MainPage = tabpage;
 
         }
         public static App getInstance()

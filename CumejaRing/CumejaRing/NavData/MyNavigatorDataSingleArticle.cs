@@ -24,11 +24,12 @@ namespace CumejaRing.NavData
 
             ///carico immegine
             INItemGrid item = new INItemGrid("", this.Navigation, this.inClient);
-            item.Orientation = StackOrientation.Vertical;
-            item.VerticalOptions = LayoutOptions.FillAndExpand;
-            item.HorizontalOptions = LayoutOptions.CenterAndExpand;
+           
+            item.contentLayout.Orientation = StackOrientation.Vertical;
+            item.contentLayout.VerticalOptions = LayoutOptions.FillAndExpand;
+            item.contentLayout.HorizontalOptions = LayoutOptions.CenterAndExpand;
 
-            item.HeightRequest = 1500;
+            item.mainLayout.HeightRequest = 1500;
 
 
             //item.BackgroundColor = new Color(100, 100, 100);
@@ -44,7 +45,7 @@ namespace CumejaRing.NavData
                 imageSource.CacheValidity = new TimeSpan(0, 1, 0, 0);
                 imm.Source = imageSource;
             }
-            
+
             imm.VerticalOptions = LayoutOptions.FillAndExpand;
             imm.HorizontalOptions = LayoutOptions.CenterAndExpand;
             imm.Aspect = Aspect.AspectFit;
@@ -53,7 +54,7 @@ namespace CumejaRing.NavData
             //---------------------------------------------
 
 
-            item.Children.Add(contenitoreImmagine);
+            item.Add(contenitoreImmagine);
 
             //titolo articolo
             Label inlabel_titolo = new Label();
@@ -66,9 +67,9 @@ namespace CumejaRing.NavData
             inlabel_titolo.HeightRequest = 60;
             inlabel_titolo.Padding = new Thickness(25, 0, 25, 0);
 
-            item.Children.Add(inlabel_titolo);
+            item.Add(inlabel_titolo);
 
-           
+
             // description
             Label inlabel_des = new Label();
             inlabel_des.Text = GetTextFromBase64(ArticleSelected.note_b64);
@@ -78,7 +79,7 @@ namespace CumejaRing.NavData
             inlabel_des.TextColor = Color.Gray;
             inlabel_des.Padding = new Thickness(25, 0, 25, 0);
 
-            item.Children.Add(inlabel_des);
+            item.Add(inlabel_des);
 
 
             //prezzo
@@ -87,13 +88,15 @@ namespace CumejaRing.NavData
             culture.NumberFormat.CurrencyDecimalSeparator = ",";
             culture.NumberFormat.CurrencyGroupSeparator = ".";
 
-            inlabelprice.Text = ArticleSelected.sellingPrice.ToString("C", culture);
+            inlabelprice.Text = ArticleSelected.sellingPriceTotVat.ToString("C", culture);
             inlabelprice.HorizontalTextAlignment = TextAlignment.Center;
             inlabelprice.HorizontalOptions = LayoutOptions.Center;
             inlabelprice.VerticalTextAlignment = TextAlignment.Center;
             inlabelprice.TextColor = Color.Gray;
+            inlabelprice.FontAttributes = FontAttributes.Bold;
+            inlabelprice.Padding = new Thickness(0, 20, 0, 0);
 
-            item.Children.Add(inlabelprice);
+            item.Add(inlabelprice);
 
             //// description
             //Button bt_documentazione = new Button();

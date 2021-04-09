@@ -65,14 +65,14 @@ namespace CumejaRing.NavData
                 List<FeaturesRegistry> listafeature = JsonConvert.DeserializeObject<List<FeaturesRegistry>>(features);
                 foreach (FeaturesRegistry feat in listafeature)
                 {
-                    INItemGrid item = new INItemGrid("", this.Navigation, this.inClient);
-                    
-                    item.Orientation = StackOrientation.Horizontal;
+                    INItemGrid item_in = new INItemGrid("", this.Navigation, this.inClient);
+                    StackLayout item = item_in.contentLayout;
+                    item_in.contentLayout.Orientation = StackOrientation.Horizontal;
                     ////item.VerticalOptions = LayoutOptions.FillAndExpand;
                     item.HorizontalOptions = LayoutOptions.FillAndExpand;
                     item.HeightRequest = 130;
 
-                    item.VarObject = feat;
+                    item_in.VarObject = feat;
                     //item.BackgroundColor = new Color(100, 100, 100);
                     Image imm = new Image();
 
@@ -96,7 +96,7 @@ namespace CumejaRing.NavData
                     //frm_immagine.Content = imm;
 
 
-                    item.Children.Add(imm);
+                    item_in.Add(imm);
 
                     Label inlabel = new Label();
                     inlabel.Text = feat.description;
@@ -105,10 +105,10 @@ namespace CumejaRing.NavData
                     inlabel.VerticalTextAlignment = TextAlignment.Start;
                     inlabel.TextColor = Color.Gray;
 
-                    item.Children.Add(inlabel);
+                    item_in.Add(inlabel);
 
 
-                    item.addEventGrind(new EventONFeatureSelect());
+                    item_in.addEventGrind(new EventONFeatureSelect());
 
 
                    

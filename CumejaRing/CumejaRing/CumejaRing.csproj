@@ -14,6 +14,7 @@
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
     <PackageReference Include="Xamarin.Forms.InputKit" Version="3.7.1" />
+    <PackageReference Include="Plugin.Badge" Version="2.3.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\InceptiumAPI\InceptiumAPI.csproj" />
@@ -28,5 +29,14 @@
     <Folder Include="jsonmodel\ring\" />
     <Folder Include="httpconfig\" />
     <Folder Include="NavData\Pos\" />
+    <Folder Include="risorse\icone\app\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="risorse\icone\app\carrello.png" />
+    <None Remove="risorse\icone\app\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="risorse\icone\app\carrello.png" />
+    <EmbeddedResource Include="risorse\icone\app\home.png" />
   </ItemGroup>
 </Project>
