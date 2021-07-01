@@ -9,32 +9,16 @@ namespace CumejaBeach.utility.http
         {
         }
 
-        void INHttpClientConfigEvent.AfterCommandExecute(INHttpClientConnectionStatus status)
+        public void AfterCommandExecuteAsync(INHttpClientConnectionStatus status, INHTTPClient client)
         {
-
-
-            if (status!= INHttpClientConnectionStatus.CONNECTED)
-            {
-                //App.getInstance().LeggiRingAsync(true);
-            }
-            //switch (status)
-            //{
-            //    case INHttpClientConnectionStatus.CONNECTED:
-            //        App.getInstance().LeggiRingAsync();
-            //        break;
-            //    case INHttpClientConnectionStatus.CONNECTION_ERROR:
-            //        break;
-            //    case INHttpClientConnectionStatus.CONNECTION_UNAUTORIZED:
-            //        break;
-            //    case INHttpClientConnectionStatus.NOT_CONNECTED:
-            //        break;
-            //}
+            throw new NotImplementedException();
         }
 
-        string INHttpClientConfigEvent.RequestAutentication(string respondeBody)
+        public void RequestAutentication(string respondeBody, INHTTPClient client)
         {
-            
-            return respondeBody;
+            throw new NotImplementedException();
         }
+
+       
     }
 }
