@@ -1,6 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
+# Vidkkldflk
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CumejaBeach.Android", "CumejaBeach.Android\CumejaBeach.Android.csproj", "{15C5AA5B-6893-4238-BF0C-681CFA197B47}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CumejaBeach.iOS", "CumejaBeach.iOS\CumejaBeach.iOS.csproj", "{5F610449-6D84-4258-8C9B-F8C674093B7B}"
